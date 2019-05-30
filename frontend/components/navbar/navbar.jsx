@@ -14,7 +14,7 @@ const Navbar = ({ user }) => {
         </div>
     )
     
-    return user ? navLink() : null
+    return navLink();
 };
 
 export default Navbar;
