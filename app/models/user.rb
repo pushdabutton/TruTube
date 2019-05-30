@@ -5,10 +5,10 @@ class User < ApplicationRecord
 
     attr_reader :password
 
-    after_initialize :ensure_logged_in
+    after_initialize :ensure_session_token
 
-    def self.find_by_cred(username, password)
-        user = User.find_by(username: username)
+    def self.find_by_cred(email, password)
+        user = User.find_by(email: email)
         user && user.is_password?(password) ? user : nil
     end
 
