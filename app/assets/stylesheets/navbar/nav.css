@@ -24,7 +24,7 @@
     font-weight: bold;
 }
 
-.nav-login{
+.nav-login, .signout-button{
     display: flex;
     align-items: center;
     text-align: center;
@@ -38,6 +38,10 @@
     margin-top: 11px;
     font-family: Roboto, Arial, sans-serif;
     font-weight: 200;
+}
+
+.signout-button{
+    margin-top: 0;
 }
 
 body{

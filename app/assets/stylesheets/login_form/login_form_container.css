@@ -3,5 +3,68 @@
     display: flex;
     align-items: center;
     text-align: center;
+    
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    font-family: Futura,Trebuchet MS,Arial,sans-serif;
 
+}
+
+.login-form-box{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    border: solid lightgrey 1px;
+    height:501px;
+    width:  448px;
+    border-radius: 9px;
+    
+}
+
+.entry-text{
+    font-size: 20px;
+}
+
+.session-submit{
+    border-style: none;
+    background: #1a73e8;
+    color: white;
+    height: 30px;
+    width: 80px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.login-input{
+    border-style: none;
+    border-radius: 2px;
+    border: solid lightgray 1px;
+    height: 40px;
+    width: 300px;
+
+    
+}
+
+.troogle-box{
+    padding: 10px;
+    height: 420px;
+    width: 280;
+}
+
+.troogle-logo{
+    padding: 5%;
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.signup-button{
+    color: #065fd4;
+
+}
+
+input[type=text], input[type=email], input[type=password]{
+    padding-left: 20px;
 }

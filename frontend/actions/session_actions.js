@@ -7,18 +7,18 @@ export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER"
 
 export const sign_up = (user) => dispatch => (
     SessionApiUtil.signup(user).then( user => dispatch(receiveCurrentUser(user)), 
-    errors => dispatch(receiveErrors(errors)))
+    errors => dispatch(receiveErrors(errors.responseJSON)))
 )
 
 export const log_in = (user) => dispatch => (
     SessionApiUtil.log_in(user).then( user => dispatch(receiveCurrentUser(user)),
-    errors => dispatch(receiveErrors(errors)))
+    errors => dispatch(receiveErrors(errors.responseJSON)))
     
 )
 
 export const log_out = () => dispatch => (
     SessionApiUtil.log_out().then( () => dispatch(logoutCurrentUser()),
-    errors => dispatch(receiveErrors(errors)))
+    errors => dispatch(receiveErrors(errors.responseJSON)))
 )
 
 export const receiveCurrentUser = user => ({
