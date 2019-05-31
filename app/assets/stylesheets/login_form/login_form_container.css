@@ -9,6 +9,9 @@
     width: 100vw;
     background-color: white;
     font-family: Futura,Trebuchet MS,Arial,sans-serif;
+}
+
+.login-form-container{
 
 }
 
@@ -68,3 +71,34 @@
 input[type=text], input[type=email], input[type=password]{
     padding-left: 20px;
 }
+
+.login-form-label{
+    display: block;
+      position: relative;
+      left: 0px;
+      color: #999;
+      font-family: 'Helvetica', sans-serif;
+      font-size: 16px;
+      z-index: 1;
+      transition: all 0.3s ease-out;
+}
+
+.login-input{
+     display: block;
+      position: relative;
+      width: 100%;
+      font-size: 16px;
+      z-index: 2;
+}
+
+.login-input:focus{
+    outline: none;
+    border: 1px solid #00aced;
+}
+
+.login-input:focus + .login-form-label{
+    top: -40px;
+    font-size: 11px;
+    color: #00aced;
+}
+

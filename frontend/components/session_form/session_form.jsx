@@ -42,7 +42,7 @@ class SessionForm extends React.Component {
 
     render() {
         let usernameInput = this.props.formType == "signup" ?
-            <label>
+            <label className="login-form-label">
                 <input type="text" value={this.state.username} onChange={this.update("username")} className='login-input' placeholder="Username" />
                 {this.renderErrors("Username")}
                 {/* <br /> */}
@@ -88,7 +88,7 @@ class SessionForm extends React.Component {
                         <div className="login-form">
                             <br/>
 
-                            <label >
+                            <label className="login-form-label">
                                 <input type="email" value={this.state.email} onChange={this.update("email")} className='login-input' placeholder="Email"/>
                             </label>
                                 
@@ -96,9 +96,9 @@ class SessionForm extends React.Component {
                             <br/>
                             {usernameInput}
                             <br/>
-                            <label >
+                            <label className="login-form-label">
                                 <input type="password" value={this.state.password} onChange={this.update('password')} className='login-input' placeholder="Password"/>
-                            </label>
+                            </label >
                                 {this.renderErrors("Password")}
                             <br/>
 
