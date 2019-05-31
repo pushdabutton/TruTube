@@ -68,6 +68,10 @@
 
 }
 
+.errors{
+    color: red;
+}
+
 input[type=text], input[type=email], input[type=password]{
     padding-left: 20px;
 }

@@ -9,7 +9,12 @@ class SessionForm extends React.Component {
         this.state = { email: "", password: "", username: ""}
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.clearErrors = this.clearErrors.bind(this);
     };
+    
+    clearErrors(){
+        this.props.clearErrors();
+    }
 
     update(field) {
         return e => this.setState({[field]: e.currentTarget.value})
@@ -51,10 +56,10 @@ class SessionForm extends React.Component {
         
         let signUpButton = this.props.formType == "login" ? 
             <div className="signup-button">
-                <Link to="/signup">Create account</Link>
+                <Link to="/signup" onClick={this.clearErrors}>Create account</Link>
             </div> : 
             <div className="signup-button">
-                <Link to="/login">Sign in instead</Link>
+                <Link to="/login" onClick={this.clearErrors}>Sign in instead</Link>
             </div>;
 
         let formWords = this.props.formType == "login" ? 
