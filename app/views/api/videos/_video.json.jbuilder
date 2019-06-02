@@ -1,0 +1,1 @@
+json.extract! video, :id, :author_id, :url, :title

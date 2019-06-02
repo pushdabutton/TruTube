@@ -3,6 +3,9 @@ import { withRouter } from 'react-router-dom';
 import {merge} from 'lodash'
 import { Link } from 'react-router-dom';
 
+
+//document.getElementsByClassName("").classList.add or remove
+
 class SessionForm extends React.Component {
     constructor(props){
         super(props);        
@@ -43,7 +46,6 @@ class SessionForm extends React.Component {
         )
     }
 
-    
 
     render() {
         let usernameInput = this.props.formType == "signup" ?
