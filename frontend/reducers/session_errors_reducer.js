@@ -2,11 +2,9 @@ import { RECEIVE_SESSION_ERRORS, RECEIVE_CURRENT_USER, CLEAR_ERRORS } from '../a
 
 export default (oldState = [], action) => {
     Object.freeze(oldState);
-    debugger
     switch(action.type){
 
         case RECEIVE_SESSION_ERRORS:
-            debugger
             return action.errors;
 
         case RECEIVE_CURRENT_USER:

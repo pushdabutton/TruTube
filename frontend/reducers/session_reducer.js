@@ -19,7 +19,7 @@ const sessionReducer = (oldState = {}, action) => {
 
             
         default:
-            debugger
+            
             return oldState
     }
 }

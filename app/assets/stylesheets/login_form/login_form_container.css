@@ -54,7 +54,7 @@
 .troogle-box{
     padding: 10px;
     height: 420px;
-    width: 280;
+    width: 80%;
 }
 
 .troogle-logo{
@@ -79,7 +79,7 @@ input[type=text], input[type=email], input[type=password]{
 .login-form-label{
     display: block;
       position: relative;
-      left: 0px;
+      left: -10px;
       color: #999;
       font-family: 'Helvetica', sans-serif;
       font-size: 16px;
@@ -104,5 +104,11 @@ input[type=text], input[type=email], input[type=password]{
     top: -40px;
     font-size: 11px;
     color: #00aced;
+}
+
+.text-input{
+    box-sizing: border-box;
+    position: absolute;
+    left: 10px;
 }
 

@@ -17,7 +17,10 @@ class Api::VideosController < ApplicationController
     end
 
     def show
-        @video = Video.find_by(:id)
+        @video = Video.find(params[:id])
+        @video.views = 0 if @video.views == nil
+        @video.views += 1
+        @video.save!
     end
 
 

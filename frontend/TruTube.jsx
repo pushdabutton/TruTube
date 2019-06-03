@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from "./components/root"
-
+import {fetchVideo} from './actions/video_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
+    window.fetchVideo = fetchVideo
     window.getState = store.getState;
     window.dispatch = store.dispatch;
 
