@@ -5,8 +5,11 @@ export default (oldState = [], action) => {
     switch(action.type){
 
         case RECEIVE_SESSION_ERRORS:
-            return action.errors;
-
+            // if (action.errors == undefined){
+            //     return ["Email/Username already in use"]
+            // }else{
+                return action.errors;
+            // }
         case RECEIVE_CURRENT_USER:
             return [];
 

@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-
+    window.store = store
     window.fetchVideo = fetchVideo
     window.getState = store.getState;
     window.dispatch = store.dispatch;

@@ -31,10 +31,12 @@ class VideoShow extends React.Component {
         if(this.player.paused){
             
             this.player.play();
-            e.currentTarget.innerHTML = "Pause";
+            e.currentTarget.classList.add("fa-pause")
+            e.currentTarget.classList.remove("fa-play")
         }else{
             this.player.pause();
-            e.currentTarget.innerHTML = "Play";
+            e.currentTarget.classList.add("fa-play")
+            e.currentTarget.classList.remove("fa-pause")
         }
     }
 
@@ -47,7 +49,6 @@ class VideoShow extends React.Component {
     }
 
     seekTimeUpdate() {
-        debugger
         this.player = document.getElementById("video-player")
         this.seekSlider = document.getElementById("seekSlider")
         this.curtimetext = document.getElementById("curtimetext")
@@ -65,19 +66,23 @@ class VideoShow extends React.Component {
     }
 
     vidMute() {
+        debugger
         this.mutebtn = document.getElementById("mutebtn")
         this.player = document.getElementById("video-player")
         if (this.player.muted) {
 
             this.player.muted = false;
-            this.mutebtn.innerHTML = "Mute";
+            this.mutebtn.classList.remove("fa-volume-mute")
+            this.mutebtn.classList.add("fa-volume-up")
         } else {
             this.player.muted = true;
-            this.mutebtn.innerHTML = "Unmute";
+            this.mutebtn.classList.remove("fa-volume-up")
+            this.mutebtn.classList.add("fa-volume-mute")
         }
     }
 
     setVol(){
+        debugger
         this.player = document.getElementById("video-player")
         this.volSlider = document.getElementById("volSlider")
         this.player.volume = this.volSlider.value / 100;
@@ -86,15 +91,15 @@ class VideoShow extends React.Component {
 
     volUpdate(){
         this.player = document.getElementById("video-player")
+        this.volSlider = document.getElementById("volSlider")
         this.volSlider.value = this.player.volume * 100
     }
 
 
 
-    //------------------------------------------------------------------------------------------
+
 
     render() {
-        debugger
         const { video } = this.props;
         if (!video) {
             let url = null
@@ -105,6 +110,7 @@ class VideoShow extends React.Component {
         }
         // debugger
         let url = this.props.video.photoUrl
+        let vol = this.player.volume * 100
         return (
         <div className="video-page">
                 
@@ -112,12 +118,15 @@ class VideoShow extends React.Component {
                     <video src={url} id="video-player" onTimeUpdate={this.seekTimeUpdate} onVolumeChange={this.volUpdate}
                     width="720" height="480" >
                 </video>
+                <div className="seek"><input id="seekSlider" onChange={this.vidSeek} type="range" min="0" max="100" value="0" step="1" style={{ width: "720px" }}/></div>
                 <div className="video-controls">
-                    <button className="play-pause" onClick={this.playPause} >Play</button>
-                    <input id="seekSlider" onChange={this.vidSeek} type="range" min="0" max="100" value="0" step="1" />
-                    <span id="curtimetext">00:00</span> / <span id="durtimetext">00:00</span>
-                    <button id="mutebtn" onClick={this.vidMute}>Mute</button>
-                    <input id="volSlider" onChange={this.setVol} type="range" min="0" max="100" value="100" step="1" />
+                    <div className="player-left-side"><i className="fas fa-play" id="play-pause" onClick={this.playPause} ></i>
+                    <div className="time"><span id="curtimetext">00:00</span> / <span id="durtimetext">00:00</span></div>
+                        <div>
+                            <i className="fas fa-volume-up" id="mutebtn" onClick={this.vidMute}></i>
+                            <input id="volSlider" onChange={this.setVol} type="range" min="0" max="100" value={vol} step="0.01" />
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="video-details">

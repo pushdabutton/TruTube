@@ -18,6 +18,47 @@
 }
 
 .video-controls{
-    background: grey;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    
     padding: 10px;
+    width: 720px;
+    height: 10px;
+    /* border: red 2px solid; */
+    z-index: 1;
+}
+
+.time{
+
+}
+
+.player-left-side{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    width: 300px;
+    /* border: red 2px solid; */
+}
+
+.seek{
+    position: absolute;
+    top: 500px;
+}
+
+input[type='range']{
+    -webkit-appearance: none !important;
+    background: #000;
+    border: #666 1px solid;
+    height: 4px;
+}
+
+input[type='range']::-webkit-slider-thumb{
+    -webkit-appearance: none !important;
+    background: rgb(226, 36, 36);
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    cursor: pointer;
 }

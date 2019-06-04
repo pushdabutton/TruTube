@@ -5,12 +5,19 @@ const Navbar = ({ user, logout }) => {
     const display = user ? (
         <div>
         <p> {user.username} </p>
-            <Link onClick={logout} className="signout-button">Sign Out</Link>
+            <div>
+                
+                <Link onClick={logout} className="signout-button">Sign Out</Link>
+                
+            </div>
         </div>
     ) : (
+            <div>
         <Link to="/login" className="nav-login">
+            <i className="fas fa-user"></i>
             Sign In
         </Link>
+            </div>
     )
     const navLink = () => (
         <div className="navbar">
