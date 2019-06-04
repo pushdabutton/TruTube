@@ -16,3 +16,8 @@
     margin: 0 auto;
     width: 725px;
 }
+
+.video-controls{
+    background: grey;
+    padding: 10px;
+}

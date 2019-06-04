@@ -10,19 +10,24 @@
 }
 
 .nav-home{
-    display: flex;
-    align-items: stretch;
+    /* display: flex; */
+    /* align-items: stretch; */
     /* text-align: center; */
     background: white;
-    height: 20px;
+    /* height: 20px; */
     /* text-transform: uppercase; */
-    padding-left: 10px;
+    padding-left: -10px;
     padding-right: 10px;
     font-size: 14px;
-    margin-top: 8px;
+    /* margin-top: 3px; */
+    /* padding-right: 800px; */
+    /* position: absolute; */
+    /* left: 100px; */
+    /* translate: 3px; */
     font-family: "Oswald", sans-serif;
     color: black;
     font-weight: bold;
+    /* translate: 20px; */
     /* translate: 20px; */
 }
 
@@ -53,16 +58,29 @@ body{
 
 .fa-youtube{
     color: #ff0000;
+    
 }
 
 .searchBar{
-    display: flex;
+    
     height: 15px;
     width: 500px;
-    margin-top: 10px;
+    /* position: absolute; */
+    /* left: 600px; */
     /* justify-content: center; */
-    left: 30px
+    /* margin-left: -1000px; */
+    
 
+}
+
+.nav-leftside{
+    display: flex;
+    justify-content: space-around;
+    /* border: solid 3px #ff0000; */
+    width: 250px;
+    height: 15px;
+
+    
 }
 
 /*  justify-content: flexbox start
