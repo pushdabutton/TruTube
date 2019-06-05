@@ -7,3 +7,12 @@ export const fetchVideo = id => {
     })
     )
 };
+
+export const fetchvideos = () => {
+    return(
+        $.ajax({
+            method: 'GET',
+            url: 'api/videos'
+        })
+    )
+}

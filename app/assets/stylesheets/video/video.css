@@ -29,8 +29,8 @@
     z-index: 1;
 }
 
-.time{
-
+#video-player{
+    background-color: black;
 }
 
 .player-left-side{

@@ -5,21 +5,22 @@ import {Route, Switch} from "react-router-dom"
 import NavbarContainer from "../components/navbar/navbar_container"
 import {AuthRoute} from "../util/route_util";
 import VideoShowContainer from './video/video_show_container'
+import VideoIndexContainer from './video/video_index_container';
 
 const App = () => (
     //switch router
-    <div>
-        <Switch>
-            
+    <>
+        <Switch>            
             <AuthRoute exact path="/login" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
-            <header>
-                <NavbarContainer />
-                <Route path="/videos/:videoId" component={VideoShowContainer} />
-            </header>
+            {/* <header> */}
+            {/* </header> */}
+            <NavbarContainer />
             
         </Switch>
-    </div>
+            <Route path="/videos/:videoId" component={VideoShowContainer} />
+            <Route exact path="/" component={VideoIndexContainer} />
+    </>
 );
 
 export default App;

@@ -19,9 +19,9 @@ class VideoShow extends React.Component {
         this.props.fetchVideo(id)
         this.player = document.getElementById("video-player")
         this.seekSlider = document.getElementById("seekSlider")
-        
-        
+            
     }
+
 
     //--------------Player Controls-----------------------------------------------------------
 
@@ -49,16 +49,22 @@ class VideoShow extends React.Component {
     }
 
     seekTimeUpdate() {
+        debugger
         this.player = document.getElementById("video-player")
         this.seekSlider = document.getElementById("seekSlider")
         this.curtimetext = document.getElementById("curtimetext")
         this.durtimetext = document.getElementById("durtimetext")
+        
         let newTime = this.player.currentTime * (100 / this.player.duration)
+        if (!newTime) { newTime = 0}
         this.seekSlider.value = newTime;
         let curmins = Math.floor(this.player.currentTime / 60 )
         let cursecs = Math.floor(this.player.currentTime - curmins * 60)
         let durmins = Math.floor(this.player.duration / 60)
         let dursecs = Math.round(this.player.duration - durmins * 60)
+        if (!durmins) { durmins = "0" }
+        if (!dursecs) { dursecs = "0" }
+
         if(cursecs < 10) {cursecs = "0"+cursecs}
         if(dursecs < 10) {dursecs = "0"+dursecs}
         this.curtimetext.innerHTML = curmins+":"+cursecs
@@ -66,7 +72,6 @@ class VideoShow extends React.Component {
     }
 
     vidMute() {
-        debugger
         this.mutebtn = document.getElementById("mutebtn")
         this.player = document.getElementById("video-player")
         if (this.player.muted) {
@@ -110,7 +115,8 @@ class VideoShow extends React.Component {
         }
         // debugger
         let url = this.props.video.photoUrl
-        let vol = this.player.volume * 100
+
+        // let vol = this.player.volume * 100
         return (
         <div className="video-page">
                 
@@ -121,10 +127,10 @@ class VideoShow extends React.Component {
                 <div className="seek"><input id="seekSlider" onChange={this.vidSeek} type="range" min="0" max="100" value="0" step="1" style={{ width: "720px" }}/></div>
                 <div className="video-controls">
                     <div className="player-left-side"><i className="fas fa-play" id="play-pause" onClick={this.playPause} ></i>
-                    <div className="time"><span id="curtimetext">00:00</span> / <span id="durtimetext">00:00</span></div>
+                    <div className="time"><span id="curtimetext">0:00</span> / <span id="durtimetext">0:00</span></div>
                         <div>
                             <i className="fas fa-volume-up" id="mutebtn" onClick={this.vidMute}></i>
-                            <input id="volSlider" onChange={this.setVol} type="range" min="0" max="100" value={vol} step="0.01" />
+                            <input id="volSlider" onChange={this.setVol} type="range" min="0" max="100" value="100" step="0.01" />
                         </div>
                     </div>
                 </div>

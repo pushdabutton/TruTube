@@ -33,7 +33,6 @@ class SessionForm extends React.Component {
     }
 
     renderErrors(field) {
-        debugger
         return (
             <ul>
                 {this.props.errors.map((error,idx) => (

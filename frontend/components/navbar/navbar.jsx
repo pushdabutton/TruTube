@@ -20,18 +20,23 @@ const Navbar = ({ user, logout }) => {
             </div>
     )
     const navLink = () => (
+        <>
         <div className="navbar">
-            <div className="nav-leftside">
-                <h1 ><i className="fas fa-align-justify"></i></h1>
-                <Link to="/" className="nav-home">
-                    <h3> <i className="fab fa-youtube"></i> TruTube</h3>
-                </Link>
-            </div>
-            <input type="text" className="searchBar" placeholder="Search"/>
-            {display}
-            
+            {/* <div className="nav-div"> */}
+                <div className="nav-leftside">
+                    <h1 ><i className="fas fa-align-justify"></i></h1>
+                    <Link to="/" className="nav-home">
+                        <h3> <i className="fab fa-youtube"></i> TruTube</h3>
+                    </Link>
+                </div >
+                <input type="text" className="searchBar" placeholder="Search"/>
+                {display}
+            {/* </div> */}
         </div>
+
+        </>
     )
+
     
     return navLink()
 };

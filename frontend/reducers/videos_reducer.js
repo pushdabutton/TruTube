@@ -1,10 +1,13 @@
-import { RECEIVE_VIDEO } from '../actions/video_actions';
+import { RECEIVE_VIDEO, RECEIVE_VIDEOS } from '../actions/video_actions';
 import merge from 'lodash'
 
 export const VideosReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     // console.log(action.video.id)
     switch(action.type){
+    
+        case RECEIVE_VIDEOS:
+            return action.videos;
         
         case RECEIVE_VIDEO:
             // debugger
