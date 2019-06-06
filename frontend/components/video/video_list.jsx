@@ -1,8 +1,7 @@
 import React from 'react';
 import VideoIndexItem from './video_index_item';
-import leftNav from '../navbar/left-nav'
 
-class VideoIndex extends React.Component{
+class VideoList extends React.Component {
 
     componentDidMount() {
         this.props.fetchVideos();
@@ -10,9 +9,7 @@ class VideoIndex extends React.Component{
 
 
     render() {
-
         let videos = this.props.videos || [];
-
         videos = this.props.videos.map(video => {
             return (
                 <VideoIndexItem key={video.id} video={video} />
@@ -20,17 +17,11 @@ class VideoIndex extends React.Component{
         });
 
         return (
-            <div className="frame">
-            {leftNav()}
-                <div className="video-index-list">
-                    <div>
+                <div className="video-list">
                         {videos}
-                    </div>
                 </div>
-                
-             </div>
         );
     }
 }
 
-export default VideoIndex;
+export default VideoList;

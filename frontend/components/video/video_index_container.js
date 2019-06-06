@@ -4,7 +4,7 @@ import {fetchVideos} from '../../actions/video_actions'
 
 const msp = state =>{
    return {
-    videos: Object.keys(state.entities.videos).map(id => state.entities.videos[id])
+    videos: Object.values(state.entities.videos)
     }
 }   
 

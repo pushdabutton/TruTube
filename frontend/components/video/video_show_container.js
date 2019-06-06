@@ -5,17 +5,17 @@ import {fetchVideo} from '../../actions/video_actions'
 
 const msp = (state, ownProps) => {
     // console.log(ownProps)
-    // const Id = parseInt(ownProps.match.params.videoId)
+    const Id = parseInt(ownProps.match.params.videoId)
     // debugger
-    const video = Object.values(state.entities.videos)[0]
-
+    const video = state.entities.videos[Id]
     return {
     video
     }
 }
 
 const mdp = (dispatch) => ({
-    fetchVideo: id => dispatch(fetchVideo(id))
+    fetchVideo: id => dispatch(fetchVideo(id)),
+
 })
 
 export default connect(msp, mdp)(VideoShow);

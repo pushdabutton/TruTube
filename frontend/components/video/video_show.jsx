@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import VideoListContainer from '../video/video_list_container'
+import CommentsIndexContainer from '../comments/comments_index_container'
 
 class VideoShow extends React.Component {
     constructor(props) {
@@ -87,7 +89,7 @@ class VideoShow extends React.Component {
     }
 
     setVol(){
-        debugger
+
         this.player = document.getElementById("video-player")
         this.volSlider = document.getElementById("volSlider")
         this.player.volume = this.volSlider.value / 100;
@@ -113,34 +115,41 @@ class VideoShow extends React.Component {
                     </video>)
 
         }
-        // debugger
         let url = this.props.video.photoUrl
-
+        
         // let vol = this.player.volume * 100
         return (
+        <>
+        <div className="whole-page">
         <div className="video-page">
                 
             <div className="video-box">
                     <video src={url} id="video-player" onTimeUpdate={this.seekTimeUpdate} onVolumeChange={this.volUpdate}
-                    width="720" height="480" >
+                    width="1280" height="720" >
                 </video>
-                <div className="seek"><input id="seekSlider" onChange={this.vidSeek} type="range" min="0" max="100" value="0" step="1" style={{ width: "720px" }}/></div>
+                   <input id="seekSlider" className="seek" onChange={this.vidSeek} type="range" min="0" max="100" value="0" step="1" style={{ width: "100%" }}/>
                 <div className="video-controls">
                     <div className="player-left-side"><i className="fas fa-play" id="play-pause" onClick={this.playPause} ></i>
-                    <div className="time"><span id="curtimetext">0:00</span> / <span id="durtimetext">0:00</span></div>
-                        <div>
                             <i className="fas fa-volume-up" id="mutebtn" onClick={this.vidMute}></i>
-                            <input id="volSlider" onChange={this.setVol} type="range" min="0" max="100" value="100" step="0.01" />
-                        </div>
+                            <input id="volSlider" className="volume" onChange={this.setVol} type="range" min="0" max="100" value="100" step="0.01" />
+                            <div className="time"><span id="curtimetext">0:00</span> / <span id="durtimetext">0:00</span></div>
                     </div>
                 </div>
+
+        </div>
             </div>
             <div className="video-details">
                 <h2 className="video-title">{this.props.video.title}</h2>
                 <h3>{this.props.video.views} Views</h3>
                 <h2>{this.props.video.description}</h2>
             </div>
+                <VideoListContainer />
         </div>
+
+        <div className="Comments">
+            <CommentsIndexContainer props={this.props}/>
+        </div>
+        </>
         );
     }
 

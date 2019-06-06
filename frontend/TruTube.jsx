@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from "./components/root"
 import {fetchVideo, fetchVideos} from './actions/video_actions'
+import {fetchComments} from './actions/comment_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
     let store;
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.fetchVideos = fetchVideos
     window.getState = store.getState;
     window.dispatch = store.dispatch;
+    window.fetchComments = fetchComments
 
 
     const root = document.getElementById('root');
