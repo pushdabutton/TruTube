@@ -31,8 +31,10 @@ const Navbar = ({ user, logout }) => {
                 </div >
                 <input type="text" className="searchBar" placeholder="Search"/>
                 <div className="nav-rightside">
-                    <i className="fas fa-video"></i>   
-                {display}
+                    <i className="fas fa-video"></i>
+                    <i className="fas fa-th"></i>
+                    <i className="fas fa-ellipsis-v"></i>
+                    {display}
                 </div>
             {/* </div> */}
         </div>

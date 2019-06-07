@@ -34,6 +34,7 @@
     display: inline-flex;
     flex-direction: column;
     padding: 5px;
+    word-wrap: break-word;
 }
 
 .video-index-list{
@@ -42,12 +43,17 @@
     flex-direction: column;
     padding: 50px;
     margin-left: 200px; 
+    margin-top: 50px
 
 }
 
 .vid-holder p{
     height: fit-content;
     font-weight: bold;
+}
+
+.index-video-box {
+    border-bottom: lightgrey 1px solid;
 }
 
 /* .mini-video-box{
@@ -68,3 +74,4 @@
 .vid-holder p{
     height: fit-content;
 } */
+

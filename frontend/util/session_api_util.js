@@ -22,3 +22,11 @@ export const log_out = () => (
         url: 'api/session'
     })
 );
+
+export const demo_in = () => (
+    $.ajax({
+        method: 'post',
+        url: 'api/session',
+        data: { username: "Demo", email: "Demo@demo.com", password: "password" } 
+    })
+);

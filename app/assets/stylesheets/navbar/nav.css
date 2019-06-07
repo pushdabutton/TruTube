@@ -3,13 +3,13 @@
     position: fixed;
     background: white;
     z-index: 2;
-    height: 30px;
+    height: 35px;
     width: 100%;
     padding: 8px 16px;
     justify-content: space-between;
     align-items: center;
     /* text-align: center; */
-    box-shadow: 0px 3px #f4f4f4
+    box-shadow: 0px 3px #f4f4f4;
 }
 
 .nav-home{
@@ -21,7 +21,7 @@
     /* text-transform: uppercase; */
     padding-left: -10px;
     padding-right: 10px;
-    font-size: 14px;
+    font-size: 20px;
     /* margin-top: 3px; */
     /* padding-right: 800px; */
     /* position: absolute; */
@@ -29,7 +29,7 @@
     /* translate: 3px; */
     font-family: "Oswald", sans-serif;
     color: black;
-    font-weight: bold;
+    font-weight: 400;
     /* translate: 20px; */
     /* translate: 20px; */
 }
@@ -42,7 +42,8 @@
     text-align: center;
     background: white;
     height: 20px;
-    border: solid 1px #065fd4;
+    width: fit-content;
+    border: solid 2px #065fd4;
     text-transform: uppercase;
     /* padding-left: 10px;
     padding-right: 10px; */
@@ -50,10 +51,17 @@
     /* margin-top: 11px;  */
     font-family: Roboto, Arial, sans-serif;
     font-weight: 200;
+    padding: 6px;
 }
 
 .nav-login{
     margin-right: 60px;
+    margin-top: 13px;
+    width: 60px;
+    display: flex;
+    align-content: center;
+    position: relative;
+    bottom: 
 }
 /* .nav-div{
     display: flex;
@@ -86,8 +94,8 @@ body{
 
 .searchBar{
     
-    height: 15px;
-    width: 500px;
+    height: 35px;
+    width: 650px;
     /* position: absolute; */
     /* left: 600px; */
     /* justify-content: center; */
@@ -102,8 +110,37 @@ body{
     /* border: solid 3px #ff0000; */
     width: 250px;
     height: 15px;
+}
 
-    
+.fa-video{
+    padding: 15px;
+    position: relative;
+    right: 50px;
+    font-size: 16px;
+    color: #606060
+}
+
+.fa-th{
+    padding: 15px;
+    position: relative;
+    right: 50px;
+    font-size: 16px;
+    color: #606060
+}
+
+.fa-ellipsis-v{
+    padding: 15px;
+    position: relative;
+    right: 50px;
+    font-size: 16px;
+    color: #606060
+}
+
+.nav-rightside{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    right: 50px;
 }
 
 .fa-home{
@@ -111,7 +148,7 @@ body{
     position: relative;
     margin-top: 60px;
     margin-left: 20px;
-    color: red;
+    color: grey;
 }
 
 .fa-fire{
@@ -119,7 +156,7 @@ body{
     position: relative;
     margin-top: 70px;
     margin-left: 22px;
-    color: red;
+    color: grey;
 }
 
 .fa-clock{
@@ -127,6 +164,21 @@ body{
     position: relative;
     margin-top: 80px;
     margin-left: 20px;
+    color: grey;
+}
+
+.fa-home:hover{
+
+    color: red;
+}
+
+.fa-fire:hover{
+
+    color: red;
+}
+
+.fa-clock:hover{
+
     color: red;
 }
 

@@ -103,6 +103,9 @@ class VideoShow extends React.Component {
     }
 
 
+    // timeStyle = {
+    //     background: `linear-gradient( to right, red 0%, red ${currProgress}%, #7c7c7c ${currProgress}% , #7c7c7c ${remainingTime}%)`
+    // }
 
 
 

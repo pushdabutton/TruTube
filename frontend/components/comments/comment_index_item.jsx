@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 const CommentIndexItem = ( comment ) => {
     debugger
     return (
-        <li key={comment.comment.id}>
-            {comment.comment.body}
-        </li>);
+        <div key={comment.comment.id}>
+            <p>{comment.comment.body}</p>
+            <p>{comment.comment.author}</p>
+        </div>);
 };
 
 export default CommentIndexItem;

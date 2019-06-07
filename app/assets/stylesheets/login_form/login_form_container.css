@@ -41,6 +41,12 @@
     font-size: 15px;
 }
 
+.demo{
+    position: relative;
+    right: 150px;
+    bottom: 20px;
+}
+
 .login-input{
     border-style: none;
     border-radius: 2px;

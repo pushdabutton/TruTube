@@ -13,8 +13,8 @@ class VideoList extends React.Component {
         videos = this.props.videos.map(video => {
             return (
                 <VideoIndexItem key={video.id} video={video} />
-            );
-        });
+            )
+        }).slice(0,9);
 
         return (
                 <div className="video-list">

@@ -13,6 +13,7 @@ class SessionForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.clearErrors = this.clearErrors.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     };
     
     clearErrors(){
@@ -29,6 +30,15 @@ class SessionForm extends React.Component {
         this.props.processForm(user);
         if (this.state.user){
         this.props.history.push(`/`)
+        }
+    }
+
+    handleDemo(e) {
+        e.preventDefault();
+        let demo = {username: "Demo", email: "Demo@demo.com", password: "password"}
+        this.props.log_in(demo);
+        if (this.state.user) {
+            this.props.history.push(`/`)
         }
     }
 
@@ -110,8 +120,13 @@ class SessionForm extends React.Component {
 
                             <input type="submit" value="Next" className='session-submit'/>
                         </div>
+
                         <br/>
                         {signUpButton}
+
+                        
+                            <input onClick={this.handleDemo} type="submit" className="session-submit demo" value="Demo"/>
+                
                         <br/>
                     </div>
                 </form>
