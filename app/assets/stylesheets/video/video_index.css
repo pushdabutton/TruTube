@@ -28,13 +28,14 @@
 .vid-holder{
     width: 240px;
     height: 175px;
-    width: fit-content;
+    /* width: fit-content; */
     margin: 0px;
     justify-content: center;
     display: inline-flex;
     flex-direction: column;
     padding: 5px;
-    word-wrap: break-word;
+    /* word-wrap: break-word; */
+    overflow-wrap: break-word;
 }
 
 .video-index-list{
