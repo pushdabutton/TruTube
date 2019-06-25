@@ -14,7 +14,7 @@ class VideoIndexItem extends React.Component {
     }
 
     play() {
-        debugger
+        
         this.player = document.getElementById(`mini-video-${this.props.video.id}`)
         this.player.muted = true
         if (this.player.paused) {
@@ -25,7 +25,7 @@ class VideoIndexItem extends React.Component {
     }
 
     pause() {
-        debugger
+    
         this.player = document.getElementById(`mini-video-${this.props.video.id}`)
         this.player.muted = true
         if (!this.player.paused) {
@@ -38,7 +38,7 @@ class VideoIndexItem extends React.Component {
         if(!this.props.video) {return null}
         return (
             <div className="vid-holder" onClick={this.redirect(this.props.video.id)}> 
-                <video src={this.props.video.photoUrl} className="mini-video-box" id={`mini-video-${this.props.video.id}`} onMouseEnter={this.play} onMouseLeave={this.pause} defaultMuted> 
+                <video src={this.props.video.photoUrl} className="mini-video-box" id={`mini-video-${this.props.video.id}`} onMouseEnter={this.play} onMouseLeave={this.pause} muted> 
                     <i className="fab fa-youtube video"></i>
                 </video>
                 <p>{this.props.video.title}</p>

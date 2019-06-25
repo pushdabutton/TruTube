@@ -7,8 +7,7 @@ export const fetchComments = (video_id) => dispatch => (
 )
 
 export const receiveVideoComments = comments => {
-    return  {
-        
+    return  {      
     type: RECEIVE_VIDEO_COMMENTS,
     comments
 }

@@ -1,11 +1,15 @@
-import * as VideoApUtil from '../util/video_api_util';
+import * as VideoApiUtil from '../util/video_api_util';
+import * as LikeApiUtil from '../util/like_api_util'
 
 export const RECEIVE_VIDEO = 'RECEIVE_VIDEO'
 export const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS'
 
 
 export const fetchVideo = id => dispatch => (
-    VideoApUtil.fetchVideo(id).then( (video) => dispatch(receiveVideo(video)))
+    VideoApiUtil.fetchVideo(id).then( (video) => dispatch(receiveVideo(video)))
+)
+export const likeVideo = (like) => dispatch => (
+    LikeApiUtil.createVideoLike(like).then( (video) => dispatch(receiveVideo(video)))
 )
 
 export const receiveVideo = (video) => ({
@@ -14,8 +18,13 @@ export const receiveVideo = (video) => ({
 })
 
 
+
 export const fetchVideos = () => dispatch => (
-    VideoApUtil.fetchvideos().then(videos => dispatch(receiveVideos(videos)))
+    VideoApiUtil.fetchvideos().then(videos => dispatch(receiveVideos(videos)))
+)
+
+export const searchVideos = query => dispatch => (
+    VideoApiUtil.searchVideos(query).then(videos => dispatch(receiveVideos(videos)))
 )
 
 export const receiveVideos = videos => ({

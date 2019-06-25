@@ -1,49 +1,103 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import randomize from '../../selectors/random_selector'
 
-const Navbar = ({ user, logout }) => {
-    const display = user ? (
-        <div>
-        <p> {user.username} </p>
+
+class Navbar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {query: "", 
+            user: this.props.user, 
+            logout: this.props.logout}
+        this.handleSubmit = this.handleSubmit.bind(this)
+        let color1 = "#4285F4"
+        let color2 = "#0F9D58"
+        let color3 = "#DB4437"
+        let color4 = "#F4B400"
+        let color5 = "#4285F4"
+        let color6 = "#0F9D58"
+        let color7 = "#DB4437"
+
+        let colors = [color1, color2, color3, color4, color5, color6, color7]
+        this.proColor = randomize(colors)[0]
+    }
+
+    update(field) {
+        return e => this.setState({ [field]: e.target.value })
+    }
+
+    handleSubmit(e){
+        e.preventDefault();
+        this.props.history.push(`/videos/search?query=${this.state.query}`)
+    }
+
+
+
+
+
+    render(){
+
+
+        let pic;
+        
+        if (this.props.user) {
+            pic = <img src={this.props.user.picture} />
+        } else {
+            pic = <i class="fas fa-user-circle" style={{color: this.proColor}}></i>
+        }
+
+        
+        const display = this.props.user ? (
             <div>
-                
-                <Link onClick={logout} className="signout-button">Sign Out</Link>
-                
-            </div>
-        </div>
-    ) : (
-            <div>
-        <Link to="/login" className="nav-login">
-            <i className="fas fa-user"></i>
-            Sign In
-        </Link>
-            </div>
-    )
-    const navLink = () => (
-        <>
-        <div className="navbar">
-            {/* <div className="nav-div"> */}
-                <div className="nav-leftside">
-                    <h1 ><i className="fas fa-align-justify"></i></h1>
-                    <Link to="/" className="nav-home">
-                        <h3> <i className="fab fa-youtube"></i> TruTube</h3>
-                    </Link>
-                </div >
-                <input type="text" className="searchBar" placeholder="Search"/>
-                <div className="nav-rightside">
-                    <i className="fas fa-video"></i>
-                    <i className="fas fa-th"></i>
-                    <i className="fas fa-ellipsis-v"></i>
-                    {display}
+                <div>
+                    {pic}
+                    {/* <Link onClick={this.props.logout} className="signout-button">Sign Out</Link> */}
+                    
                 </div>
-            {/* </div> */}
-        </div>
+            </div>
+        ) : (
+                <div>
+            <Link to="/login" className="nav-login">
+                <i className="fas fa-user"></i>
+                Sign In
+            </Link>
+                </div>
+        )
+        const navLink = () => (
+            <>
+            <div className="navbar">
+                {/* <div className="nav-div"> */}
+                    <div className="nav-leftside">
+                        <h1 ><i className="fas fa-align-justify"></i></h1>
+                        <Link to="/" className="nav-home">
+                            <h3> <i className="fab fa-youtube"></i> TruTube</h3>
+                        </Link>
+                    </div >
+                    <form className="search" onSubmit={this.handleSubmit}>
+                        <input type="text" className="searchBar" 
+                            placeholder="Search" value={this.state.keyword} onChange={this.update("query")}/>
+                        <button type="submit" className="searchIcon" value="search"><i class="fas fa-search"></i></button>
 
-        </>
-    )
+                    </form>
+                    <div className="nav-rightside">
+                        <i className="fas fa-video"></i>
+                        <i className="fas fa-th"></i>
+                        <i className="fas fa-ellipsis-v"></i>
+                        {display}
+                        <div className="modal">
+                            <div onClick={this.props.logout} className="signout-button">Sign Out</div>
+                            <div onClick={this.props.changeDarkMode} className="dark-moode-button"></div>
+                        </div>
+                    </div>
+                {/* </div> */}
+            </div>
 
-    
-    return navLink()
-};
+            </>
+        )
+
+        
+        return navLink()
+    };
+}
 
 export default Navbar;

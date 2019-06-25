@@ -8,9 +8,19 @@ class Comment < ApplicationRecord
         foreign_key: :author_id,
         class_name: :User
 
+    has_many :likes, as: :likeable
+
 
     def author
         user.username
+    end
+
+    def photo
+        if user.photo.attached?
+            return url_for(user.photo)
+        else
+            return false
+        end
     end
 
 end

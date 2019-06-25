@@ -16,3 +16,11 @@ export const fetchvideos = () => {
         })
     )
 }
+
+export const searchVideos = query => {
+    return $.ajax({
+        method: "GET",
+        url: "/api/videos",
+        data: query
+    })
+}

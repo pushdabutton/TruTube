@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import { log_out } from '../../actions/session_actions';
 import Navbar from './navbar';
-
+import {withRouter} from 'react-router-dom'
+import { changeDarkMode } from '../../actions/ui_actions'
 
 const mapStateToProps = ({ session, entities: { users } }) => {
     return {
@@ -10,10 +11,8 @@ const mapStateToProps = ({ session, entities: { users } }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    logout: () => dispatch(log_out())
+    logout: () => dispatch(log_out()),
+    changeDarkMode: () => dispatch(changeDarkMode())
 });
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Navbar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbar));

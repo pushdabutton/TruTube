@@ -2,12 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const CommentIndexItem = ( comment ) => {
-    debugger
+const CommentIndexItem = ( {comment} ) => {
+    let photo;
+    if (comment.photo) {
+        photo = <img src={comment.photo}/>
+    }else {
+        photo = <i class="fas fa-user-circle"></i>
+    }
     return (
-        <div key={comment.comment.id}>
-            <p>{comment.comment.body}</p>
-            <p>{comment.comment.author}</p>
+        <div className="comment-index-item" key={comment.id}>
+            <p>{comment.body}</p>
+            <p>{comment.author}</p>
+            <p>{photo}</p>
         </div>);
 };
 

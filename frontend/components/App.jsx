@@ -6,6 +6,7 @@ import NavbarContainer from "../components/navbar/navbar_container"
 import {AuthRoute} from "../util/route_util";
 import VideoShowContainer from './video/video_show_container'
 import VideoIndexContainer from './video/video_index_container';
+import VideoSearchIndexContainer from './video/video_search_index_container'
 
 const App = () => (
     //switch router
@@ -18,8 +19,11 @@ const App = () => (
             <NavbarContainer />
             
         </Switch>
-            <Route path="/videos/:videoId" component={VideoShowContainer} />
+        <Switch>
+            <Route exact path="/videos/search" component={VideoSearchIndexContainer} />    
+            <Route exact path="/videos/:videoId" component={VideoShowContainer} />
             <Route exact path="/" component={VideoIndexContainer} />
+        </Switch>
     </>
 );
 

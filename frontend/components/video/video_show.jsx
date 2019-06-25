@@ -13,6 +13,12 @@ class VideoShow extends React.Component {
         this.vidMute = this.vidMute.bind(this)
         this.setVol = this.setVol.bind(this)
         this.volUpdate = this.volUpdate.bind(this)
+        this.player = React.createRef();
+        this.like = this.like.bind(this)
+        this.dislike = this.dislike.bind(this)
+        this.state = {
+            currentSec: 0
+        }
     }
 
     componentDidMount() {
@@ -23,6 +29,31 @@ class VideoShow extends React.Component {
         this.seekSlider = document.getElementById("seekSlider")
             
     }
+
+    componentDidUpdate(){
+
+    }
+
+    like(){
+        let vidId = this.props.match.params.videoId
+        if(this.props.user.liked_videos.liked.includes(vidId)){
+            this.props.likeVideo(like)
+        }
+        let like = { likeable_type: "Video", vote: true, likeable_id: this.props.match.params.videoId}
+        this.props.likeVideo(like)
+    }
+
+    dislike() {
+        let vidId = this.props.match.params.videoId
+        if (this.props.user.liked_videos.disliked.includes(vidId)) {
+            this.props.likeVideo(like)
+        }
+        let like = { likeable_type: "Video", vote: false, likeable_id: this.props.match.params.videoId }
+        debugger
+        this.props.likeVideo(like)
+    }
+
+
 
 
     //--------------Player Controls-----------------------------------------------------------
@@ -42,24 +73,32 @@ class VideoShow extends React.Component {
         }
     }
 
-    vidSeek(){
-        // debugger
-        this.player = document.getElementById("video-player")
-        this.seekSlider = document.getElementById("seekSlider")
-        let seekto = this.player.duration * (this.seekSlider.value / 100)
-        this.player.currentTime = seekto;
+    // vidSeek(){
+    //     // debugger
+    //     this.player = document.getElementById("video-player")
+    //     this.seekSlider = document.getElementById("seekSlider")
+    //     let seekto = this.player.duration * (this.seekSlider.value / 100)
+    //     this.player.currentTime = seekto;
+    // }
+
+    vidSeek(e) {
+        this.setState({ currentSec: e.target.value / 100 });
+        this.player.current.currentTime = e.target.value / 10;
     }
 
     seekTimeUpdate() {
-        debugger
         this.player = document.getElementById("video-player")
         this.seekSlider = document.getElementById("seekSlider")
         this.curtimetext = document.getElementById("curtimetext")
         this.durtimetext = document.getElementById("durtimetext")
-        
-        let newTime = this.player.currentTime * (100 / this.player.duration)
-        if (!newTime) { newTime = 0}
-        this.seekSlider.value = newTime;
+
+        setInterval(() => {
+            this.setState({ currentSec: this.player.currentTime })
+        })
+        console.log(this.state)
+        // let newTime = this.player.currentTime * (100 / this.player.duration)
+        // if (!newTime) { newTime = 0}
+        // this.seekSlider.value = newTime;
         let curmins = Math.floor(this.player.currentTime / 60 )
         let cursecs = Math.floor(this.player.currentTime - curmins * 60)
         let durmins = Math.floor(this.player.duration / 60)
@@ -103,9 +142,7 @@ class VideoShow extends React.Component {
     }
 
 
-    // timeStyle = {
-    //     background: `linear-gradient( to right, red 0%, red ${currProgress}%, #7c7c7c ${currProgress}% , #7c7c7c ${remainingTime}%)`
-    // }
+    
 
 
 
@@ -114,45 +151,79 @@ class VideoShow extends React.Component {
         if (!video) {
             let url = null
             return (<video src={url} id="video-player"
-                         width="720" height="480" >
+            width="720" height="480" >
                     </video>)
 
         }
+        let timeStyle = {
+            background: `linear-gradient( to right, red 0%, red ${this.player.currentTime/ this.player.duration * 100}%, #7c7c7c ${this.player.currentTime / this.player.duration * 100}% , #7c7c7c ${Math.floor(this.player.currentTime / this.player.duration * 100)}%)`
+        }
+
+        // let timeStyle = {
+        //     background: `linear-gradient( to right, red 0%, red ${this.player.currentTime * 10}%, #7c7c7c ${this.player.currentTime * 10}% , #7c7c7c ${Math.floor(this.player.currentTime / this.player.duration * 100)}%)`
+        // }
+        debugger
         let url = this.props.video.photoUrl
+        let photo;
+        if (this.props.photo) {
+            photo = <img src={this.props.photo} />
+        } else {
+            photo = <i class="fas fa-user-circle" ></i>
+        }
         
         // let vol = this.player.volume * 100
         return (
-        <>
-        <div className="whole-page">
-        <div className="video-page">
-                
-            <div className="video-box">
-                    <video src={url} id="video-player" onTimeUpdate={this.seekTimeUpdate} onVolumeChange={this.volUpdate}
-                    width="1280" height="720" >
-                </video>
-                   <input id="seekSlider" className="seek" onChange={this.vidSeek} type="range" min="0" max="100" value="0" step="1" style={{ width: "100%" }}/>
-                <div className="video-controls">
-                    <div className="player-left-side"><i className="fas fa-play" id="play-pause" onClick={this.playPause} ></i>
-                            <i className="fas fa-volume-up" id="mutebtn" onClick={this.vidMute}></i>
-                            <input id="volSlider" className="volume" onChange={this.setVol} type="range" min="0" max="100" value="100" step="0.01" />
-                            <div className="time"><span id="curtimetext">0:00</span> / <span id="durtimetext">0:00</span></div>
+        <div className="show-page">
+            <div className="whole-page">
+                <div className="video-page">
+                        
+                    <div className="video-box">
+                            <video src={url} id="video-player" onTimeUpdate={this.seekTimeUpdate} onVolumeChange={this.volUpdate} ref={this.player}
+                            width="100%" height="auto" >
+                        </video>
+                            <input id="seekSlider" className="seek" onChange={this.vidSeek} type="range" min="0" max={this.player.duration * 100} value={this.state.currentSec * 100} step="1" style={{ width: "100%" }} style={timeStyle}/>
+                        <div className="video-controls">
+                            <div className="player-left-side"><i className="fas fa-play" id="play-pause" onClick={this.playPause} ></i>
+                                    <i className="fas fa-volume-up" id="mutebtn" onClick={this.vidMute}></i>
+                                    <input id="volSlider" className="volume" onChange={this.setVol} type="range" min="0" max="100" value="100" step="0.01" />
+                                    <div className="time"><span id="curtimetext">0:00</span> / <span id="durtimetext">0:00</span></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div className="video-details">
+                    <h2 className="video-title">{this.props.video.title}</h2>
+                    <h3 className="video-views">{this.props.video.views} Views</h3>
+                    <div className="video-like-box">
+                        <div className="thumbs">
+                            <i className="fas fa-thumbs-up" onClick={this.like}></i> <span>{this.props.video.totalLikes.likes}</span>
+                            <i className="fas fa-thumbs-down" onClick={this.dislike}></i> <span>{this.props.video.totalLikes.dislikes}</span>
+                        </div>
+                        <br/>
+                        <div className="likes-container">
+                            <div className="like-bar"></div>
+                        </div>
+                    </div>
+                </div>
+                <div className="video-description">
+                    <div className="profile-pic">{photo}</div>
+                    <div className="description-details">
+                        <div>
+                            <p className="username">{this.props.video.username}</p>
+                            <p>{this.props.video.published}</p>
+                        </div>
+                        <h2 className="description-text">{this.props.video.description}</h2>
                     </div>
                 </div>
 
-        </div>
+                <div className="Comments-Container">
+                    <CommentsIndexContainer props={this.props}/>
+                </div>
             </div>
-            <div className="video-details">
-                <h2 className="video-title">{this.props.video.title}</h2>
-                <h3>{this.props.video.views} Views</h3>
-                <h2>{this.props.video.description}</h2>
-            </div>
-                <VideoListContainer />
-        </div>
+            <VideoListContainer />
 
-        <div className="Comments">
-            <CommentsIndexContainer props={this.props}/>
         </div>
-        </>
         );
     }
 

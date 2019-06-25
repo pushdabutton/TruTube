@@ -1,24 +1,49 @@
-# README
+# TruTube
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> This README would normally document whatever steps are necessary to get the application up and running.
 
-Things you may want to cover:
+background details relevant to understanding what this module does
 
-* Ruby version
+## Usage
 
-* System dependencies
+```js
+var truTube = require('TruTube')
 
-* Configuration
+console.log('hello warld')
+```
 
-* Database creation
+outputs
 
-* Database initialization
+```
+hello warld
+```
 
-* How to run the test suite
+## API
 
-* Services (job queues, cache servers, search engines, etc.)
+```js
+var truTube = require('TruTube')
+```
 
-* Deployment instructions
+See [api_formatting.md](api_formatting.md) for tips.
 
-* ...
+## Install
+
+With [npm](https://npmjs.org/) installed, run
+
+```
+$ npm install TruTube
+```
+
+## Acknowledgments
+
+TruTube was inspired by..
+
+## See Also
+
+- [`noffle/common-readme`](https://github.com/noffle/common-readme)
+- ...
+
+## License
+
+ISC
+

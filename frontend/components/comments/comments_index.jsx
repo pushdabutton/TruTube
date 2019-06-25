@@ -10,7 +10,6 @@ class CommentIndex extends React.Component {
 
 
     render() {
-        debugger
         const comments = this.props.comments.map(comment => {
             return (
                 <CommentIndexItem key={comment.id} comment={comment} />
@@ -19,6 +18,10 @@ class CommentIndex extends React.Component {
 
         return(
             <div className="comments">
+                <div className="total-comments">
+                    {comments.length} comments
+                </div>
+                    <br/>
                 <ul>
                     {comments}
                 </ul>

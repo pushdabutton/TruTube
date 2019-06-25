@@ -3,7 +3,15 @@ class Api::VideosController < ApplicationController
     before_action :ensure_logged_in, only: [:create]
 
     def index
-        @videos = Video.all
+
+        if params[:query]
+          @videos = Video.search(params[:query])
+
+        else
+            @videos = Video.all
+
+        end
+        
     end
 
     def create
