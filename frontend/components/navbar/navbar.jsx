@@ -8,7 +8,9 @@ class Navbar extends React.Component {
         super(props);
         this.state = {query: "", 
             user: this.props.user, 
-            logout: this.props.logout}
+            logout: this.props.logout,
+            mode: "light"
+        }
         this.handleSubmit = this.handleSubmit.bind(this)
         let color1 = "#4285F4"
         let color2 = "#0F9D58"
@@ -20,6 +22,16 @@ class Navbar extends React.Component {
 
         let colors = [color1, color2, color3, color4, color5, color6, color7]
         this.proColor = randomize(colors)[0]
+        this.switchDarkmode = this.switchDarkmode.bind(this)
+    }
+
+    componentDidMount(){
+        // if (this.props.darkmode){
+        //     this.setState({ mode: "dark" })
+        // }else{
+        //     this.setState({ mode: "light" })
+        // }
+
     }
 
     update(field) {
@@ -31,29 +43,49 @@ class Navbar extends React.Component {
         this.props.history.push(`/videos/search?query=${this.state.query}`)
     }
 
+    switchDarkmode(){
+        this.props.changeDarkMode(this.props.ui.darkmode)
+        // debugger
+        // if (!this.props.ui.darkmode) {
+        //     this.setState({ mode: "dark" })
+        // } else {
+        //     this.setState({ mode: "light" })
+        // }
+    }
+
+    toggleHidden(e){
+        let modal = document.getElementById("Modal")
+        modal.classList.toggle("hidden")
+    }
 
 
 
 
     render(){
 
-
+        let mode = this.props.ui.darkmode ? 'dark' : 'light'
         let pic;
-        
-        if (this.props.user) {
-            pic = <img src={this.props.user.picture} />
-        } else {
-            pic = <i class="fas fa-user-circle" style={{color: this.proColor}}></i>
+        if(this.props.user) {
+            if (this.props.user.picture) {
+                pic = <img src={this.props.user.picture} onClick={this.toggleHidden}/>
+            } else {
+                pic = <i class="fas fa-user-circle" style={{ color: this.proColor }} onClick={this.toggleHidden}></i>
+            }
         }
 
-        
+
         const display = this.props.user ? (
             <div>
-                <div>
+
                     {pic}
                     {/* <Link onClick={this.props.logout} className="signout-button">Sign Out</Link> */}
-                    
-                </div>
+                <div className={`${mode}-modal hidden`} id="Modal" >
+                        <div className="modal-details">{pic} {this.props.user.username}</div>
+                        <br/>
+                        <div onClick={this.props.logout} className="signout-button">Sign Out</div>
+                        <br />
+                        <div onClick={this.switchDarkmode} className="dark-moode-button">Dark Mode</div>
+                    </div>
             </div>
         ) : (
                 <div>
@@ -65,18 +97,18 @@ class Navbar extends React.Component {
         )
         const navLink = () => (
             <>
-            <div className="navbar">
+                <div className={`${mode}-navbar`}>
                 {/* <div className="nav-div"> */}
                     <div className="nav-leftside">
                         <h1 ><i className="fas fa-align-justify"></i></h1>
-                        <Link to="/" className="nav-home">
+                        <Link to="/" className={`${mode}-nav-home`}>
                             <h3> <i className="fab fa-youtube"></i> TruTube</h3>
                         </Link>
                     </div >
                     <form className="search" onSubmit={this.handleSubmit}>
-                        <input type="text" className="searchBar" 
+                        <input type="text" className={`${mode}-searchBar`}
                             placeholder="Search" value={this.state.keyword} onChange={this.update("query")}/>
-                        <button type="submit" className="searchIcon" value="search"><i class="fas fa-search"></i></button>
+                        <button type="submit" className={`${mode}-searchIcon`} value="search"><i class="fas fa-search"></i></button>
 
                     </form>
                     <div className="nav-rightside">
@@ -84,10 +116,7 @@ class Navbar extends React.Component {
                         <i className="fas fa-th"></i>
                         <i className="fas fa-ellipsis-v"></i>
                         {display}
-                        <div className="modal">
-                            <div onClick={this.props.logout} className="signout-button">Sign Out</div>
-                            <div onClick={this.props.changeDarkMode} className="dark-moode-button"></div>
-                        </div>
+                        
                     </div>
                 {/* </div> */}
             </div>

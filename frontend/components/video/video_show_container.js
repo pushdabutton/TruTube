@@ -10,7 +10,8 @@ const msp = (state, ownProps) => {
     const user = state.entities.users[Object.keys(state.entities.users)[0]]
     return {
     video,
-    user
+    user,
+    ui: state.ui
     }
 }
 

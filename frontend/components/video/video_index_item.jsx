@@ -36,14 +36,16 @@ class VideoIndexItem extends React.Component {
 
     render(){
         if(!this.props.video) {return null}
+        // let mode = this.props.ui.darkmode ? 'dark' : 'light'
         return (
-            <div className="vid-holder" onClick={this.redirect(this.props.video.id)}> 
+            // <div className={`${mode}-vid-holder`} onClick={this.redirect(this.props.video.id)}> 
                 <video src={this.props.video.photoUrl} className="mini-video-box" id={`mini-video-${this.props.video.id}`} onMouseEnter={this.play} onMouseLeave={this.pause} muted> 
                     <i className="fab fa-youtube video"></i>
                 </video>
-                <p>{this.props.video.title}</p>
-                <span className="mini-views">{this.props.video.views || 0} views</span>
-            </div>
+                /* <p>{this.props.video.title}</p>
+                <div className="mini-video-user">{this.props.video.username}</div>
+                <div className="mini-video-info"><span className="mini-views">{this.props.video.views || 0} views</span>&nbsp;•&nbsp;<span className="mini-views">{this.props.video.published}</span></div> */
+            // </div>
         )
     }
 }

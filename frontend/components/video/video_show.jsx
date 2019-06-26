@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import VideoListContainer from '../video/video_list_container'
 import CommentsIndexContainer from '../comments/comments_index_container'
+import randomize from '../../selectors/random_selector'
 
 class VideoShow extends React.Component {
     constructor(props) {
@@ -19,6 +20,17 @@ class VideoShow extends React.Component {
         this.state = {
             currentSec: 0
         }
+        let color1 = "#4285F4"
+        let color2 = "#0F9D58"
+        let color3 = "#DB4437"
+        let color4 = "#F4B400"
+        let color5 = "#4285F4"
+        let color6 = "#0F9D58"
+        let color7 = "#DB4437"
+
+        this.colors = [color1, color2, color3, color4, color5, color6, color7]
+        this.proColor = randomize(this.colors)[0]
+
     }
 
     componentDidMount() {
@@ -148,6 +160,7 @@ class VideoShow extends React.Component {
 
     render() {
         const { video } = this.props;
+        let mode = this.props.ui.darkmode ? 'dark' : 'light'
         if (!video) {
             let url = null
             return (<video src={url} id="video-player"
@@ -162,7 +175,6 @@ class VideoShow extends React.Component {
         // let timeStyle = {
         //     background: `linear-gradient( to right, red 0%, red ${this.player.currentTime * 10}%, #7c7c7c ${this.player.currentTime * 10}% , #7c7c7c ${Math.floor(this.player.currentTime / this.player.duration * 100)}%)`
         // }
-        debugger
         let url = this.props.video.photoUrl
         let photo;
         if (this.props.photo) {
@@ -173,7 +185,7 @@ class VideoShow extends React.Component {
         
         // let vol = this.player.volume * 100
         return (
-        <div className="show-page">
+            <div className={`${mode}-show-page`}>
             <div className="whole-page">
                 <div className="video-page">
                         
@@ -206,19 +218,20 @@ class VideoShow extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="video-description">
-                    <div className="profile-pic">{photo}</div>
-                    <div className="description-details">
+                <div className={`${mode}-video-description`}>
+                    <div className="profile-pic" style={{ color: this.proColor }}>{photo}</div>
+                    <div className={`${mode}-description-details`}>
                         <div>
                             <p className="username">{this.props.video.username}</p>
-                            <p>{this.props.video.published}</p>
+                            <br/>
+                            <p>Published on {this.props.video.published}</p>
                         </div>
                         <h2 className="description-text">{this.props.video.description}</h2>
                     </div>
                 </div>
-
+                    <br/>
                 <div className="Comments-Container">
-                    <CommentsIndexContainer props={this.props}/>
+                    <CommentsIndexContainer props={this.props} mode={mode}/>
                 </div>
             </div>
             <VideoListContainer />

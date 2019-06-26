@@ -1,7 +1,7 @@
 export const DARKMODE = 'DARKMODE'
 
 
-export const changeDarkMode = () => ({
+export const changeDarkMode = (bool) => ({
     type: DARKMODE,
-    darkmode: false
+    darkmode: bool
 });

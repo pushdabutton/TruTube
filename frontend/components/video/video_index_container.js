@@ -5,7 +5,8 @@ import Randomize from '../../selectors/random_selector'
 
 const msp = state =>{
    return {
-    videos: Randomize(Object.values(state.entities.videos))
+    videos: Randomize(Object.values(state.entities.videos)),
+    ui: state.ui
     }
 }   
 

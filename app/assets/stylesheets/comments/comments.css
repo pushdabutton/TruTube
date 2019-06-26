@@ -1,7 +1,23 @@
 .comment-index-item{
-    border: solid red 1px;
+    display: flex;
+    flex-direction: row;
+    height: 10%;
+    align-content: flex-start;
 }
 
 .Comments-container{
     border: solid blue 1px;
+}
+
+.dark-comments{
+    color: white;
+}
+
+.comment-body{
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-index-item{
+    border-bottom: solid 1px darkgray;    
 }

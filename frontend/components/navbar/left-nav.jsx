@@ -1,8 +1,8 @@
 import React from 'react'
 
-const leftNav = () => {
+const leftNav = (mode) => {
     return(
-        <div className="left-nav">
+        <div className={`${mode}-left-nav`}>
             <i className="fas fa-home"></i>
             <i className="fas fa-fire"></i>
             <i className="far fa-clock"></i>

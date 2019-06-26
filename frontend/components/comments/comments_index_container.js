@@ -6,7 +6,9 @@ import { fetchComments } from '../../actions/comment_actions';
 const msp = (state, ownProps) => {
     return {
         
-        comments: Object.keys(state.entities.comments).map(video_id => state.entities.comments[video_id])
+        comments: Object.keys(state.entities.comments).map(video_id => state.entities.comments[video_id]),
+        ui: state.ui,
+        video: state.videos
     }
 }
 

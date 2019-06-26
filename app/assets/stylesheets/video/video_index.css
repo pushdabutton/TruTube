@@ -25,18 +25,116 @@
     color: #ff0000;
 }
 
-.vid-holder{
-    width: 240px;
+
+
+.light-vid-holder{
+    width: 220px;
     height: 175px;
-    /* width: fit-content; */
+    /* height: fit-content; */
     margin: 0px;
     justify-content: center;
     display: inline-flex;
     flex-direction: column;
-    padding: 5px;
+    padding-bottom: 5px;
     /* word-wrap: break-word; */
     overflow-wrap: break-word;
 }
+
+.dark-vid-holder{
+    width: 220px;
+    height: 175px;
+    /* height: fit-content; */
+    margin: 0px;
+    justify-content: center;
+    display: inline-flex;
+    flex-direction: column;
+    padding-bottom: 5px;
+    /* word-wrap: break-word; */
+    overflow-wrap: break-word;
+    color: white;
+}
+
+.light-vid-list-holder{
+    width: 220px;
+    height: 175px;
+    height: fit-content;
+    margin: 0px;
+    justify-content: center;
+    display: inline-flex;
+    flex-direction: column;
+    padding-bottom: 5px;
+    /* word-wrap: break-word; */
+    overflow-wrap: break-word;
+}
+
+.dark-vid-list-holder{
+    width: 220px;
+    height: 175px;
+    height: fit-content;
+    margin: 0px;
+    justify-content: center;
+    display: inline-flex;
+    flex-direction: column;
+    padding-bottom: 5px;
+    /* word-wrap: break-word; */
+    overflow-wrap: break-word;
+    color: white;
+}
+
+.light-vid-holder p{
+    display: flex;
+    justify-content: space-between;
+    /* height: fit-content; */
+    font-weight: bold;
+}
+
+.dark-vid-holder p{
+    display: flex;
+    justify-content: space-between;
+    /* height: fit-content; */
+    font-weight: bold;
+}
+
+.light-vid-list-holder p{
+    display: flex;
+    justify-content: space-between;
+    /* height: fit-content; */
+    font-weight: bold;
+}
+
+.dark-vid-list-holder p{
+    display: flex;
+    justify-content: space-between;
+    /* height: fit-content; */
+    font-weight: bold;
+}
+
+.vid-list-holder{
+    display: flex;
+    flex-direction: row;
+}
+
+.light-vid-list-details{
+    display: flex;
+    flex-direction: column;    
+}
+
+.dark-vid-list-details p{
+    display: flex;
+    flex-direction: column;
+    color: #ffffff
+}
+
+.mini-video-info{
+    display: flex;
+    flex-direction: row;
+    color: #aaaaaa;
+}
+
+.mini-video-user{
+    color: #aaaaaa;
+}
+
 
 .video-index-list{
     display: flex;
@@ -48,10 +146,6 @@
 
 }
 
-.vid-holder p{
-    height: fit-content;
-    font-weight: bold;
-}
 
 .index-video-box {
     border-bottom: lightgrey 1px solid;

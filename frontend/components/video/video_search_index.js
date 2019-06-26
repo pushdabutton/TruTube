@@ -25,13 +25,13 @@ class VideoSearchIndex extends React.Component {
 
         let videos = this.props.videos.map(video => {
             return (
-                <VideoIndexItem key={video.id} video={video} />
+                <VideoIndexItem key={video.id} video={video} ui={this.props.ui} />
             );
         });
-
+        let mode = this.props.ui.darkmode ? 'dark' : 'light'
 
         return (
-            <div className="frame">
+            <div className={`${mode}-frame`}>
                 {leftNav()}
                 <div className="video-index-list">
                     <p className="Catergory-Words">Search Results</p>

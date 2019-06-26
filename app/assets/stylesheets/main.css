@@ -1,4 +1,11 @@
-.frame{
+.light-frame{
     display: flex;
     padding: 0px;
+}
+
+.dark-frame{
+    display: flex;
+    padding: 0px;
+    background-color: #121212;
+
 }
