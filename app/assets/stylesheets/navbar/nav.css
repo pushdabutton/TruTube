@@ -228,6 +228,7 @@ body{
 }
 
 .dark-searchBar{
+    color: white;
     
     height: 35px;
     width: 40vw;
