@@ -8,7 +8,7 @@ const CommentIndexItem = ( {comment} ) => {
     if (comment.photo) {
         photo = <img src={comment.photo}/>
     }else {
-        photo = <i class="fas fa-user-circle"></i>
+        photo = <i className="fas fa-user-circle"></i>
     }
 
     let color1 = "#4285F4"

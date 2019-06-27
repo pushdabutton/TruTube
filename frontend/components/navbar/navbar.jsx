@@ -69,7 +69,7 @@ class Navbar extends React.Component {
             if (this.props.user.picture) {
                 pic = <img src={this.props.user.picture} onClick={this.toggleHidden}/>
             } else {
-                pic = <i class="fas fa-user-circle" style={{ color: this.proColor }} onClick={this.toggleHidden}></i>
+                pic = <i className="fas fa-user-circle" style={{ color: this.proColor }} onClick={this.toggleHidden}></i>
             }
         }
 
@@ -108,7 +108,7 @@ class Navbar extends React.Component {
                     <form className="search" onSubmit={this.handleSubmit}>
                         <input type="text" className={`${mode}-searchBar`}
                             placeholder="Search" value={this.state.keyword} onChange={this.update("query")}/>
-                        <button type="submit" className={`${mode}-searchIcon`} value="search"><i class="fas fa-search"></i></button>
+                        <button type="submit" className={`${mode}-searchIcon`} value="search"><i className="fas fa-search"></i></button>
 
                     </form>
                     <div className="nav-rightside">

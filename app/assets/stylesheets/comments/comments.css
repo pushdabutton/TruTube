@@ -21,3 +21,7 @@
 .comment-index-item{
     border-bottom: solid 1px darkgray;    
 }
+
+.comment-index-item > p{
+    margin-right: 1%;
+}

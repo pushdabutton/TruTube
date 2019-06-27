@@ -17,8 +17,10 @@ class VideoShow extends React.Component {
         this.player = React.createRef();
         this.like = this.like.bind(this)
         this.dislike = this.dislike.bind(this)
+        this.vidplayPause = this.vidplayPause.bind(this)
         this.state = {
-            currentSec: 0
+            currentSec: 0,
+            vol: 100
         }
         let color1 = "#4285F4"
         let color2 = "#0F9D58"
@@ -84,6 +86,22 @@ class VideoShow extends React.Component {
         }
     }
 
+    vidplayPause(e) {
+        // debugger
+        this.player = document.getElementById("video-player")
+        this.playButton = document.getElementById("play-pause")
+        if (this.player.paused) {
+
+            this.player.play();
+            this.playButton.classList.add("fa-pause")
+            this.playButton.classList.remove("fa-play")
+        } else {
+            this.player.pause();
+            this.playButton.classList.add("fa-play")
+            this.playButton.classList.remove("fa-pause")
+        }
+    }
+
     // vidSeek(){
     //     // debugger
     //     this.player = document.getElementById("video-player")
@@ -94,7 +112,7 @@ class VideoShow extends React.Component {
 
     vidSeek(e) {
         this.setState({ currentSec: e.target.value / 100 });
-        this.player.current.currentTime = e.target.value / 10;
+        this.player.currentTime = e.target.value / 100;
     }
 
     seekTimeUpdate() {
@@ -102,6 +120,7 @@ class VideoShow extends React.Component {
         this.seekSlider = document.getElementById("seekSlider")
         this.curtimetext = document.getElementById("curtimetext")
         this.durtimetext = document.getElementById("durtimetext")
+        this.playButton = document.getElementById("play-pause")
 
         setInterval(() => {
             this.setState({ currentSec: this.player.currentTime })
@@ -120,6 +139,20 @@ class VideoShow extends React.Component {
         if(dursecs < 10) {dursecs = "0"+dursecs}
         this.curtimetext.innerHTML = curmins+":"+cursecs
         this.durtimetext.innerHTML = durmins+":"+dursecs
+        
+        if(this.player.currentTime === this.player.duration){
+            this.playButton.classList.add("fa-play")
+            this.playButton.classList.remove("fa-pause")
+        }
+
+        // if (this.player.paused) {
+        //     this.playButton.classList.add("fa-pause")
+        //     this.playButton.classList.remove("fa-play")
+        // } 
+        // if(!this.player.paused) {
+        //     this.playButton.classList.remove("fa-pause")
+        //     this.playButton.classList.add("fa-play")
+        // }
     }
 
     vidMute() {
@@ -149,6 +182,7 @@ class VideoShow extends React.Component {
         this.player = document.getElementById("video-player")
         this.volSlider = document.getElementById("volSlider")
         this.volSlider.value = this.player.volume * 100
+        this.setState({vol: this.player.volume * 100})
     }
 
 
@@ -178,8 +212,9 @@ class VideoShow extends React.Component {
         if (this.props.photo) {
             photo = <img src={this.props.photo} />
         } else {
-            photo = <i class="fas fa-user-circle" ></i>
+            photo = <i className="fas fa-user-circle" ></i>
         }
+
         let likePerc = (this.props.video.totalLikes.likes / (this.props.video.totalLikes.likes + this.props.video.totalLikes.dislikes)) * 100
         // let vol = this.player.volume * 100
         return (
@@ -187,15 +222,15 @@ class VideoShow extends React.Component {
             <div className="whole-page">
                 <div className="video-page">
                         
-                    <div className="video-box">
-                            <video src={url} id="video-player" onTimeUpdate={this.seekTimeUpdate} onVolumeChange={this.volUpdate} ref={this.player}
-                            width="100%" height="auto" >
+                    <div className="video-box" >
+                            <video src={url} id="video-player" onTimeUpdate={this.seekTimeUpdate} onVolumeChange={this.volUpdate} 
+                            width="100%" height="auto" onClick={this.vidplayPause}>
                         </video>
                             <input id="seekSlider" className="seek" onChange={this.vidSeek} type="range" min="0" max={this.player.duration * 100} value={this.state.currentSec * 100} step="1" style={{ width: "100%" }} style={timeStyle}/>
                         <div className="video-controls">
                             <div className="player-left-side"><i className="fas fa-play" id="play-pause" onClick={this.playPause} ></i>
                                     <i className="fas fa-volume-up" id="mutebtn" onClick={this.vidMute}></i>
-                                    <input id="volSlider" className="volume" onChange={this.setVol} type="range" min="0" max="100" value="100" step="0.01" />
+                                    <input id="volSlider" className="volume" onChange={this.setVol} type="range" min="0" max="100" value={this.state.vol} step="0.01" />
                                     <div className="time"><span id="curtimetext">0:00</span> / <span id="durtimetext">0:00</span></div>
                             </div>
                         </div>
