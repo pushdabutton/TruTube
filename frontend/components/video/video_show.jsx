@@ -61,7 +61,6 @@ class VideoShow extends React.Component {
             this.props.likeVideo(like)
         }
         let like = { likeable_type: "Video", vote: false, likeable_id: this.props.match.params.videoId }
-        debugger
         this.props.likeVideo(like)
     }
 
@@ -107,7 +106,6 @@ class VideoShow extends React.Component {
         setInterval(() => {
             this.setState({ currentSec: this.player.currentTime })
         })
-        console.log(this.state)
         // let newTime = this.player.currentTime * (100 / this.player.duration)
         // if (!newTime) { newTime = 0}
         // this.seekSlider.value = newTime;
@@ -182,7 +180,7 @@ class VideoShow extends React.Component {
         } else {
             photo = <i class="fas fa-user-circle" ></i>
         }
-        
+        let likePerc = (this.props.video.totalLikes.likes / (this.props.video.totalLikes.likes + this.props.video.totalLikes.dislikes)) * 100
         // let vol = this.player.volume * 100
         return (
             <div className={`${mode}-show-page`}>
@@ -206,15 +204,17 @@ class VideoShow extends React.Component {
                 </div>
                 <div className="video-details">
                     <h2 className="video-title">{this.props.video.title}</h2>
-                    <h3 className="video-views">{this.props.video.views} Views</h3>
-                    <div className="video-like-box">
-                        <div className="thumbs">
-                            <i className="fas fa-thumbs-up" onClick={this.like}></i> <span>{this.props.video.totalLikes.likes}</span>
-                            <i className="fas fa-thumbs-down" onClick={this.dislike}></i> <span>{this.props.video.totalLikes.dislikes}</span>
-                        </div>
-                        <br/>
-                        <div className="likes-container">
-                            <div className="like-bar"></div>
+                    <div className="views-likes">
+                        <h3 className="video-views">{this.props.video.views} Views</h3>
+                        <div className="video-like-box">
+                            <div className="thumbs">
+                                <i className="fas fa-thumbs-up" onClick={this.like}></i> <span>{this.props.video.totalLikes.likes}</span>
+                                <i className="fas fa-thumbs-down" onClick={this.dislike}></i> <span>{this.props.video.totalLikes.dislikes}</span>
+                            </div>
+                            <br/>
+                            <div className="likes-container">
+                                <div className="like-bar" style={{width: likePerc}}></div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -7,7 +7,6 @@ const sessionReducer = (oldState = {}, action) => {
     const nullUser = {
         id: null
     }
-    console.log(LOGOUT_CURRENT_USER === "LOGOUT_CURRENT_USER")
     Object.freeze(oldState);
     switch(action.type) {
         case RECEIVE_CURRENT_USER:

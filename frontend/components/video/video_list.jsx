@@ -11,7 +11,6 @@ class VideoList extends React.Component {
         this.props.fetchVideos();
     }
     redirect(id) {
-        debugger
         this.props.history.push(`/videos/${id}`)
     }
 

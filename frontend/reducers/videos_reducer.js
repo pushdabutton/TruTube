@@ -3,7 +3,6 @@ import {merge} from 'lodash'
 
 export const VideosReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
-    // console.log(action.video.id)
     switch(action.type){
     
         case RECEIVE_VIDEOS:

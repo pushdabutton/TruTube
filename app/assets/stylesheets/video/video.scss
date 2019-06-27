@@ -63,15 +63,21 @@
 .video-like-box{
     display: flex;
     flex-direction: column;
-    width:25%;
+    width:10%;
     height: 25%;
 }
 
 .thumbs{
     display: flex;
     justify-content: space-around;
-    font-size: 2vw;
+    // font-size: 2vw;
     color: #909090;
+}
+
+.views-likes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .likes-container {
@@ -86,7 +92,7 @@
   /* padding-top: 10px; 
   padding-bottom: 10px; */
   color: green; 
-  width: 65%; 
+//   width: 65%; 
   background-color: #909090;
   height: 100%;
 }

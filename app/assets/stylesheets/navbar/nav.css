@@ -111,7 +111,7 @@
 
 
 
-.nav-login{
+.light-nav-login{
     display: flex;
     align-items: center;
     text-align: center;
@@ -133,6 +133,32 @@
     display: flex;
     align-content: center;
     position: relative;
+    border-radius: 3px;
+}
+
+.dark-nav-login{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background: #272727;
+    height: 20px;
+    width: fit-content;
+    border: solid 2px #065fd4;
+    text-transform: uppercase;
+    /* padding-left: 10px;
+    padding-right: 10px; */
+    font-size: 12px;
+    /* margin-top: 11px;  */
+    font-family: Roboto, Arial, sans-serif;
+    font-weight: 200;
+    padding: 6px;
+    margin-right: 60px;
+    margin-top: 3%;
+    width: 60px;
+    display: flex;
+    align-content: center;
+    position: relative;
+    border-radius: 3px;
 }
 
 /* .nav-login{

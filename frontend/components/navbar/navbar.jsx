@@ -89,7 +89,7 @@ class Navbar extends React.Component {
             </div>
         ) : (
                 <div>
-            <Link to="/login" className="nav-login">
+            <Link to="/login" className={`${mode}-nav-login`}>
                 <i className="fas fa-user"></i>
                 Sign In
             </Link>

@@ -10,7 +10,6 @@ class CommentIndex extends React.Component {
 
     componentDidUpdate(prevProp) {
         if (prevProp.props.match.params.videoId !== this.props.props.match.params.videoId) {
-            debugger
             this.props.fetchComments(this.props.props.match.params.videoId)
         }
     }
