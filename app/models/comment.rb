@@ -15,6 +15,15 @@ class Comment < ApplicationRecord
         user.username
     end
 
+    def totalLikes
+        hash = {likes: 0, dislikes: 0}
+        likes.each do |like|
+            hash[:likes] += 1 if like.vote
+            hash[:dislikes] += 1 if !like.vote
+        end
+        return hash
+    end
+
     def photo
         if user.photo.attached?
             return url_for(user.photo)

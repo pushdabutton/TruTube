@@ -25,9 +25,23 @@ class User < ApplicationRecord
     def liked_videos
         hash = {liked: [], disliked: []}
         self.likes.each do |like|
-            if like.likeable_type = "Video"
-                if like.vote = true
+            if like.likeable_type == "Video"
+                if like.vote == true
                     hash[:liked] << like.likeable_id
+                else
+                    hash[:disliked] << like.likeable_id
+                end
+            end
+        end
+        return hash
+    end
+
+    def liked_comments
+        hash = {liked: [], disliked: []}
+        self.likes.each do |like|
+            if like.likeable_type == "Comment"
+                if like.vote = true
+                    hash[:liked] << like.likeable_id 
                 else
                     hash[:disliked] << like.likeable_id
                 end

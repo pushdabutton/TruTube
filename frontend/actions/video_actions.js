@@ -8,6 +8,7 @@ export const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS'
 export const fetchVideo = id => dispatch => (
     VideoApiUtil.fetchVideo(id).then( (video) => dispatch(receiveVideo(video)))
 )
+
 export const likeVideo = (like) => dispatch => (
     LikeApiUtil.createVideoLike(like).then( (video) => dispatch(receiveVideo(video)))
 )

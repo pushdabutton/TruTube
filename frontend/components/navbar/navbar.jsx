@@ -76,7 +76,6 @@ class Navbar extends React.Component {
 
         const display = this.props.user ? (
             <div>
-
                     {pic}
                     {/* <Link onClick={this.props.logout} className="signout-button">Sign Out</Link> */}
                 <div className={`${mode}-modal hidden`} id="Modal" >

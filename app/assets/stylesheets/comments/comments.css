@@ -19,9 +19,34 @@
 }
 
 .comment-index-item{
-    border-bottom: solid 1px darkgray;    
+    height: 7vh;
 }
 
 .comment-index-item > p{
     margin-right: 1%;
+}
+
+.comment-form{
+    display: flex;
+    flex-direction: row;
+}
+
+.comment-form-bar{
+    border: none;
+    border-bottom: solid grey 1px;
+    width: 100%;
+    outline: 0;
+}
+
+.comment-submit{
+
+}
+
+.comment-actions{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.comment-like-box{
+    width: 5vw;
 }

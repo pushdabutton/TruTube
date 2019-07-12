@@ -3,20 +3,41 @@ class Api::LikesController < ApplicationController
     # before_action :ensure_logged_in
 
     def create
-        @like =Like.find_by(user_id: current_user.id, likeable_id: params[:like][:likeable_id], likeable_type: "Video")
-
-        if @like
-            @like.destroy
-            @video = Video.find(like_params[:likeable_id])
-            render 'api/videos/show'
-        else
-            @like = Like.new(like_params)
-            @like.user_id = current_user.id
+        if params[:like][:likeable_type] == "Video"
+            @like =Like.find_by(user_id: current_user.id, likeable_id: params[:like][:likeable_id], likeable_type: "Video")
             
-            @like.save!
-            # render @like.errors.full_messages
-            @video = Video.find(like_params[:likeable_id])
-            render 'api/videos/show'
+            if @like
+                @like.destroy
+                @video = Video.find(like_params[:likeable_id])
+                render 'api/videos/show'
+            else
+                @like = Like.new(like_params)
+                @like.user_id = current_user.id
+                
+                @like.save!
+                # render @like.errors.full_messages
+                @video = Video.find(like_params[:likeable_id])
+                render 'api/videos/show'
+            end
+            
+        elsif params[:like][:likeable_type] == "Comment"
+            
+            @like =Like.find_by(user_id: current_user.id, likeable_id: params[:like][:likeable_id], likeable_type: "Comment")
+
+            if @like
+                @like.destroy
+                @comment = Comment.find(like_params[:likeable_id])
+                render 'api/comments/show'
+            else
+                @like = Like.new(like_params)
+                @like.user_id = current_user.id
+                
+                @like.save!
+                # render @like.errors.full_messages
+                @comment = Comment.find(like_params[:likeable_id])
+                render 'api/comments/show'
+            end
+
         end
     end
 
