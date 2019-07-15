@@ -16,6 +16,7 @@
 .comment-body{
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .comment-index-item{
@@ -36,10 +37,11 @@
     border-bottom: solid grey 1px;
     width: 100%;
     outline: 0;
+    background-color: inherit;
 }
 
-.comment-submit{
-
+.comment-text{
+    width: 100%;
 }
 
 .comment-actions{
@@ -50,3 +52,34 @@
 .comment-like-box{
     width: 5vw;
 }
+
+.comment-author{
+    font-weight: bold;
+}
+
+.comment-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.comment-date{
+    color: grey;
+    font-size: 80%;
+    padding-left: 1%;
+    width: fit-content;
+    position: relative;
+    top: 16%;
+}
+
+.comment-header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.fa-ellipsis-h {
+    transform: rotate(90deg);
+}
+

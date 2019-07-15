@@ -185,6 +185,20 @@ class VideoShow extends React.Component {
         this.setState({vol: this.player.volume * 100})
     }
 
+    fullScreen(){
+
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { /* Firefox */
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE/Edge */
+            elem.msRequestFullscreen();
+        }
+
+    }
+
 
     
 
@@ -238,7 +252,7 @@ class VideoShow extends React.Component {
                     </div>
                 </div>
                 <div className="video-details">
-                    <h2 className="video-title">{this.props.video.title}</h2>
+                    <h2 className={`${mode}-video-title`}>{this.props.video.title}</h2>
                     <div className="views-likes">
                         <h3 className="video-views">{this.props.video.views} Views</h3>
                         <div className="video-like-box">

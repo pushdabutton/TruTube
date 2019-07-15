@@ -101,7 +101,7 @@ class CommentIndex extends React.Component {
                 </form>
                 <br/>
                 <ul>
-                    {comments}
+                    {comments.reverse()}
                     <br/>
                 </ul>
             </div>

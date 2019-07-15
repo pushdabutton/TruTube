@@ -32,4 +32,9 @@ class Comment < ApplicationRecord
         end
     end
 
+    def published
+      return self.created_at.strftime("%B %d, %Y")
+   
+    end
+
 end

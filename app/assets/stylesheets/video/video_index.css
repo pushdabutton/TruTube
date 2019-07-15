@@ -95,14 +95,14 @@
     font-weight: bold;
 }
 
-.light-vid-list-holder p{
+.light-vid-list-details p{
     display: flex;
     justify-content: space-between;
     /* height: fit-content; */
     font-weight: bold;
 }
 
-.dark-vid-list-holder p{
+.dark-vid-list-details p{
     display: flex;
     justify-content: space-between;
     /* height: fit-content; */
