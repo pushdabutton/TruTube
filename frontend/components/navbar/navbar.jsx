@@ -111,7 +111,7 @@ class Navbar extends React.Component {
 
                     </form>
                     <div className="nav-rightside">
-                        <i className="fas fa-video"></i>
+                        <Link to="/upload"> <i className="fas fa-video"></i> </Link>
                         <i className="fas fa-th"></i>
                         <i className="fas fa-ellipsis-v"></i>
                         {display}

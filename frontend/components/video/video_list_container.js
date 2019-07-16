@@ -2,10 +2,11 @@ import { connect } from 'react-redux';
 import VideoList from './video_list';
 import { fetchVideos } from '../../actions/video_actions'
 import {withRouter} from 'react-router-dom'
+import randomize from '../../selectors/random_selector'
 
 const msp = state => {
     return {
-        videos: Object.values(state.entities.videos),
+        videos: randomize(Object.values(state.entities.videos)),
         ui: state.ui
     }
 }

@@ -15,6 +15,10 @@ class VideoList extends React.Component {
         this.props.history.push(`/videos/${id}`)
     }
 
+    // shouldComponentUpdate(prevProps, props){
+    //     return prevProps === props
+    // }
+
     render() {
         let mode = this.props.ui.darkmode ? 'dark' : 'light'
         let videos = this.props.videos || [];
@@ -31,8 +35,8 @@ class VideoList extends React.Component {
                     </div>
                 </div>
             )
-        });
-        videos = randomize(videos).slice(0, 9)
+        }).slice(0, 9);
+        // videos = randomize(videos).slice(0, 9)
 
         return (
                 <div className="video-list">

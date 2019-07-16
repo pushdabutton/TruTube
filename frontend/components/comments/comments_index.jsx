@@ -65,9 +65,11 @@ class CommentIndex extends React.Component {
 
     render() {
         let photo;
-        if (this.props.user.photo) {
+        if (this.props.photo) {
+            debugger
             photo = <img src={this.props.user.photo} />
         } else {
+            debugger
             photo = <i className="fas fa-user-circle"></i>
         }
 
