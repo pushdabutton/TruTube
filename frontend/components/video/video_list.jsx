@@ -1,5 +1,6 @@
 import React from 'react';
 import VideoIndexItem from './video_index_item';
+import randomize from '../../selectors/random_selector'
 
 class VideoList extends React.Component {
     constructor(props){
@@ -30,11 +31,12 @@ class VideoList extends React.Component {
                     </div>
                 </div>
             )
-        }).slice(0,9);
+        });
+        videos = randomize(videos).slice(0, 9)
 
         return (
                 <div className="video-list">
-                        {videos}
+                    {videos}
                 </div>
         );
     }

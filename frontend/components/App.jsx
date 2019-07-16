@@ -18,6 +18,7 @@ const App = () => (
             {/* </header> */}
             <NavbarContainer />
             
+            
         </Switch>
         <Switch>
             <Route exact path="/videos/search" component={VideoSearchIndexContainer} />    

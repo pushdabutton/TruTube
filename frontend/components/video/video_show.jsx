@@ -254,7 +254,7 @@ class VideoShow extends React.Component {
                 <div className="video-details">
                     <h2 className={`${mode}-video-title`}>{this.props.video.title}</h2>
                     <div className="views-likes">
-                        <h3 className="video-views">{this.props.video.views} Views</h3>
+                        <h3 className="video-views">{this.props.video.views || 0} Views</h3>
                         <div className="video-like-box">
                             <div className="thumbs">
                                 <i className="fas fa-thumbs-up" onClick={this.like}></i> <span>{this.props.video.totalLikes.likes}</span>

@@ -5,7 +5,8 @@ class Api::VideosController < ApplicationController
     def index
 
         if params[:query]
-          @videos = Video.search(params[:query])
+            str = params[:query].downcase
+          @videos = Video.where("lower(title) LIKE ? or lower(description) LIKE ?", "%#{str}%", "%#{str}%")
 
         else
             @videos = Video.all

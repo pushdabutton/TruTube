@@ -1,7 +1,8 @@
 class Video < ApplicationRecord
 
     include PgSearch
-    multisearchable against: [:title, :description]
+    multisearchable against: [:title, :description],
+                    using: [:tsearch, :trigram]
 
     validates :title, :author_id, presence: true
 

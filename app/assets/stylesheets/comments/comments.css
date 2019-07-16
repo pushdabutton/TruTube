@@ -38,6 +38,7 @@
     width: 100%;
     outline: 0;
     background-color: inherit;
+    color: inherit;
 }
 
 .comment-text{
