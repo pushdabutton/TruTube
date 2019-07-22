@@ -18,6 +18,7 @@ class VideoShow extends React.Component {
         this.like = this.like.bind(this)
         this.dislike = this.dislike.bind(this)
         this.vidplayPause = this.vidplayPause.bind(this)
+        this.fullScreen = this.fullScreen.bind(this)
         this.state = {
             currentSec: 0,
             vol: 100
@@ -49,6 +50,7 @@ class VideoShow extends React.Component {
     }
 
     like(){
+        if(!this.props.user) {return null}
         let vidId = this.props.match.params.videoId
         if(this.props.user.liked_videos.liked.includes(vidId)){
             this.props.likeVideo(like)
@@ -58,6 +60,7 @@ class VideoShow extends React.Component {
     }
 
     dislike() {
+        if (!this.props.user) { return null }
         let vidId = this.props.match.params.videoId
         if (this.props.user.liked_videos.disliked.includes(vidId)) {
             this.props.likeVideo(like)
@@ -186,15 +189,15 @@ class VideoShow extends React.Component {
     }
 
     fullScreen(){
-
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-        } else if (elem.mozRequestFullScreen) { /* Firefox */
-            elem.mozRequestFullScreen();
-        } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-            elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) { /* IE/Edge */
-            elem.msRequestFullscreen();
+        this.player = document.getElementById("video-player")
+        if (this.player.requestFullscreen) {
+            this.player.requestFullscreen();
+        } else if (this.player.mozRequestFullScreen) { /* Firefox */
+            this.player.mozRequestFullScreen();
+        } else if (this.player.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+            this.player.webkitRequestFullscreen();
+        } else if (this.player.msRequestFullscreen) { /* IE/Edge */
+            this.player.msRequestFullscreen();
         }
 
     }
@@ -230,6 +233,7 @@ class VideoShow extends React.Component {
         }
 
         let likePerc = (this.props.video.totalLikes.likes / (this.props.video.totalLikes.likes + this.props.video.totalLikes.dislikes)) * 100
+        debugger
         // let vol = this.player.volume * 100
         return (
             <div className={`${mode}-show-page`}>
@@ -246,6 +250,9 @@ class VideoShow extends React.Component {
                                     <i className="fas fa-volume-up" id="mutebtn" onClick={this.vidMute}></i>
                                     <input id="volSlider" className="volume" onChange={this.setVol} type="range" min="0" max="100" value={this.state.vol} step="0.01" />
                                     <div className="time"><span id="curtimetext">0:00</span> / <span id="durtimetext">0:00</span></div>
+                            </div>
+                            <div className="player-right-side">
+                                <i class="fas fa-expand" onClick={this.fullScreen}></i>
                             </div>
                         </div>
 

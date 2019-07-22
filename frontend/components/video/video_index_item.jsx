@@ -13,23 +13,26 @@ class VideoIndexItem extends React.Component {
        return () => {this.props.history.push(`/videos/${id}`)}
     }
 
-    play() {
-        
-        this.player = document.getElementById(`mini-video-${this.props.video.id}`)
-        this.player.muted = true
-        if (this.player.paused) {
+    play(e) {
+        debugger
+        // this.player = document.getElementById(`mini-video-${this.props.video.id}`)
+        let player = e.currentTarget
+        // this.player.muted = true
+        player.muted = true
+        if (player.paused) {
 
-            this.player.play();
+            player.play();
 
         } 
     }
 
-    pause() {
+    pause(e) {
     
-        this.player = document.getElementById(`mini-video-${this.props.video.id}`)
-        this.player.muted = true
-        if (!this.player.paused) {
-            this.player.pause();
+        let player = e.currentTarget
+        player.muted = true
+        if (!player.paused) {
+            player.pause();
+            player.load();
         }
     }
 
@@ -39,7 +42,7 @@ class VideoIndexItem extends React.Component {
         // let mode = this.props.ui.darkmode ? 'dark' : 'light'
         return (
             // <div className={`${mode}-vid-holder`} onClick={this.redirect(this.props.video.id)}> 
-                <video src={this.props.video.photoUrl} className="mini-video-box" id={`mini-video-${this.props.video.id}`} onMouseEnter={this.play} onMouseLeave={this.pause} muted> 
+                <video src={this.props.video.photoUrl} className="mini-video-box" id={`mini-video-${this.props.video.id}`} onMouseEnter={this.play} onMouseLeave={this.pause} muted preload="auto"> 
                     <i className="fab fa-youtube video"></i>
                 </video>
                 /* <p>{this.props.video.title}</p>

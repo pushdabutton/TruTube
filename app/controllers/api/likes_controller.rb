@@ -1,6 +1,6 @@
 class Api::LikesController < ApplicationController
 
-    # before_action :ensure_logged_in
+    before_action :ensure_logged_in
 
     def create
         if params[:like][:likeable_type] == "Video"

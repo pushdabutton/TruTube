@@ -27,6 +27,7 @@ const CommentIndexItem = ( {comment, colors, user, likeComment} ) => {
 
     function like(){
         // let commentId = comment.id
+        if (!user) { return null }
         let like = { likeable_type: "Comment", vote: true, likeable_id: comment.id }
         // if (user.liked_comments.liked.includes(commentId)) {
         //     debugger
@@ -36,6 +37,7 @@ const CommentIndexItem = ( {comment, colors, user, likeComment} ) => {
     }
 
     function dislike() {
+        if (!user) { return null }
         // let commentId = comment.id
         let like = { likeable_type: "Comment", vote: false, likeable_id: comment.id }
         // if (user.liked_comments.disliked.includes(commentId)) {
