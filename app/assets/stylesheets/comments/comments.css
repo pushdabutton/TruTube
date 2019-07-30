@@ -84,3 +84,23 @@
     transform: rotate(90deg);
 }
 
+.comment-cancel{
+    border-style: none;
+    background: #1a73e8;
+    color: white;
+    height: 30px;
+    width: 80px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.comment-submit{
+    border-style: none;
+    background: #1a73e8;
+    color: white;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-left: 2%;
+    margin-right: 2%;
+}

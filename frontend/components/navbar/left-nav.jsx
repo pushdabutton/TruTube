@@ -1,11 +1,12 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const leftNav = (mode) => {
     return(
         <div className={`${mode}-left-nav`}>
-            <i className="fas fa-home"></i>
-            <i className="fas fa-fire"></i>
-            <i className="far fa-clock"></i>
+            <a href="https://www.linkedin.com/in/alex-seant-62baa945/" target="_blank"> <i className="fab fa-linkedin"></i> </a>
+            <a href="https://angel.co/alex-seant" target="_blank"> <i className="fab fa-angellist"></i> </a>
+            <a href="https://pushdabutton.github.io/portfolio/" target="_blank"><i className="fas fa-address-card"></i> </a>
         </div>
     )
 }

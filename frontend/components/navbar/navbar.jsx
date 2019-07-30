@@ -106,7 +106,7 @@ class Navbar extends React.Component {
                     </div >
                     <form className="search" onSubmit={this.handleSubmit}>
                         <input type="text" className={`${mode}-searchBar`}
-                            placeholder="Search" value={this.state.keyword} onChange={this.update("query")}/>
+                            placeholder="Search" value={this.state.query} onChange={this.update("query")}/>
                         <button type="submit" className={`${mode}-searchIcon`} value="search"><i className="fas fa-search"></i></button>
 
                     </form>

@@ -24,3 +24,13 @@ export const searchVideos = query => {
         data: query
     })
 }
+
+export const createVideo = video => {
+    return (
+        $.ajax({
+            method: 'post',
+            url: `/api/users/${video.user_id}/videos`,
+            data: video
+        })
+    )
+};

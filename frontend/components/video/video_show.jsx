@@ -233,6 +233,8 @@ class VideoShow extends React.Component {
         }
 
         let likePerc = (this.props.video.totalLikes.likes / (this.props.video.totalLikes.likes + this.props.video.totalLikes.dislikes)) * 100
+        if (!likePerc) { likePerc = 0}
+        likePerc += "%"
         debugger
         // let vol = this.player.volume * 100
         return (

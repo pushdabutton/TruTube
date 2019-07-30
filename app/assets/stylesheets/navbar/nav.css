@@ -308,41 +308,41 @@ body{
     right: 5%;
 }
 
-.fa-home{
-    font-size: 20px;
+.fa-linkedin{
+    font-size: 40px;
     position: relative;
     margin-top: 60px;
     margin-left: 20px;
     color: grey;
 }
 
-.fa-fire{
-    font-size: 20px;
+.fa-angellist{
+    font-size: 40px;
     position: relative;
     margin-top: 70px;
     margin-left: 22px;
     color: grey;
 }
 
-.fa-clock{
-    font-size: 20px;
+.fa-address-card{
+    font-size: 40px;
     position: relative;
     margin-top: 80px;
-    margin-left: 20px;
+    margin-left: 15px;
     color: grey;
 }
 
-.fa-home:hover{
+.fa-linkedin:hover{
 
     color: red;
 }
 
-.fa-fire:hover{
+.fa-angellist:hover{
 
     color: red;
 }
 
-.fa-clock:hover{
+.fa-address-card:hover{
 
     color: red;
 }

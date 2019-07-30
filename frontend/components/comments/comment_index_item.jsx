@@ -66,6 +66,9 @@ const CommentIndexItem = ( {comment, colors, user, likeComment} ) => {
         dislikes = comment.totalLikes.dislikes
     }
 
+    let timeAgo = <TimeAgo date={postDate} />
+    let actualTime = timeAgo.date
+    debugger
     
 
     return (
