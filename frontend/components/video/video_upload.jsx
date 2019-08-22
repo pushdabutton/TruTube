@@ -46,9 +46,9 @@ class VideoUpload extends React.Component {
         debugger
         return(
             <div className="upload-form-container">           
-                <form>
+                <form className="upload-form-box">
                     <input type="file" onChange={this.handleFile}/>
-                    <input type="submit" onClick={this.handleSubmit}/>
+                    <i class="fas fa-cloud-upload-alt" onClick={this.handleSubmit}></i>
                 </form>
             </div>
         )
