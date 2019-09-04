@@ -1,4 +1,5 @@
 export const fetchComments = id => {
+    
     return (
         $.ajax({
             method: 'get',
