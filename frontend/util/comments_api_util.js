@@ -1,5 +1,5 @@
 export const fetchComments = id => {
-    
+
     return (
         $.ajax({
             method: 'get',
@@ -11,6 +11,7 @@ export const fetchComments = id => {
 
 export const createComment = comment => (
     $.ajax({
+        
         url: `api/videos/${comment.author_id}/comments`,
         method: 'POST',
         data: { comment }
