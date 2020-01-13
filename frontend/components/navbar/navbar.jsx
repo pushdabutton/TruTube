@@ -66,8 +66,7 @@ class Navbar extends React.Component {
         let mode = this.props.ui.darkmode ? 'dark' : 'light'
         let pic;
         if(this.props.user) {
-            if (this.props.user.picture) {
-                
+            if (this.props.user.picture) {  
                 pic = <img src={this.props.user.picture} onClick={this.toggleHidden}/>
             } else {
                 pic = <i className="fas fa-user-circle" style={{ color: this.proColor }} onClick={this.toggleHidden}></i>
