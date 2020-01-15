@@ -40,6 +40,7 @@ class Navbar extends React.Component {
     }
 
     handleSubmit(e){
+        
         e.preventDefault();
         this.props.history.push(`/videos/search?query=${this.state.query}`)
     }
