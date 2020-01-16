@@ -40,7 +40,7 @@ class Navbar extends React.Component {
     }
 
     handleSubmit(e){
-        
+
         e.preventDefault();
         this.props.history.push(`/videos/search?query=${this.state.query}`)
     }
@@ -56,6 +56,7 @@ class Navbar extends React.Component {
     }
 
     toggleHidden(e){
+        
         let modal = document.getElementById("Modal")
         modal.classList.toggle("hidden")
     }
