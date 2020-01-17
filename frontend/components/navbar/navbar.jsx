@@ -4,6 +4,7 @@ import randomize from '../../selectors/random_selector'
 
 
 class Navbar extends React.Component {
+    
     constructor(props) {
         super(props);
         this.state = {query: "", 
@@ -56,7 +57,7 @@ class Navbar extends React.Component {
     }
 
     toggleHidden(e){
-        
+
         let modal = document.getElementById("Modal")
         modal.classList.toggle("hidden")
     }
