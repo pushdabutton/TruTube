@@ -4,7 +4,7 @@ import randomize from '../../selectors/random_selector'
 
 
 class Navbar extends React.Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {query: "", 
@@ -12,7 +12,9 @@ class Navbar extends React.Component {
             logout: this.props.logout,
             mode: "light"
         }
+
         this.handleSubmit = this.handleSubmit.bind(this)
+        
         let color1 = "#4285F4"
         let color2 = "#0F9D58"
         let color3 = "#DB4437"
