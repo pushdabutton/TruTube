@@ -14,7 +14,7 @@ class Navbar extends React.Component {
         }
 
         this.handleSubmit = this.handleSubmit.bind(this)
-        
+
         let color1 = "#4285F4"
         let color2 = "#0F9D58"
         let color3 = "#DB4437"
@@ -24,8 +24,10 @@ class Navbar extends React.Component {
         let color7 = "#DB4437"
 
         let colors = [color1, color2, color3, color4, color5, color6, color7]
+
         this.proColor = randomize(colors)[0]
         this.switchDarkmode = this.switchDarkmode.bind(this)
+        
     }
 
     componentDidMount(){
