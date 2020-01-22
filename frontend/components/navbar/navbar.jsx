@@ -27,7 +27,7 @@ class Navbar extends React.Component {
 
         this.proColor = randomize(colors)[0]
         this.switchDarkmode = this.switchDarkmode.bind(this)
-        
+
     }
 
     componentDidMount(){
@@ -36,7 +36,6 @@ class Navbar extends React.Component {
         // }else{
         //     this.setState({ mode: "light" })
         // }
-
     }
 
     update(field) {
