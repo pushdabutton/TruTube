@@ -22,6 +22,7 @@ class VideoUpload extends React.Component {
         if (file) {
             reader.readAsDataURL(file);
         } else {
+            
             this.setState({ imageUrl: "", imageFile: null });
         }
     }
