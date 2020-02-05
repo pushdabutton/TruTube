@@ -22,7 +22,7 @@ class VideoUpload extends React.Component {
         if (file) {
             reader.readAsDataURL(file);
         } else {
-            
+
             this.setState({ imageUrl: "", imageFile: null });
         }
     }
@@ -44,7 +44,6 @@ class VideoUpload extends React.Component {
 
     render() {
 
-        debugger
         return(
             <div className="upload-form-container">           
                 <form className="upload-form-box">
