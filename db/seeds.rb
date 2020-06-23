@@ -161,5 +161,9 @@ video.video.attach(io: file, filename: 'MasrurvsMorigiana.mp4')
 
 
 
-
+#-----------------------------------------------------------------------
+file = open('https://trutube-pro.s3.amazonaws.com/Boog+vs+Kane.mp4')
+video = Video.create(title:'Boog vs Kane' , description:'Boog Vs Kane' ,author_id: demo_user.id )
+video.video.attach(io: file, filename: 'BoogvKane.mp4')
+Comment.create(video_id: video.id, author_id: users.sample.id, body: "Boog was going in on homeboy")
 

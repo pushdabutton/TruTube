@@ -28,11 +28,11 @@ class CommentIndex extends React.Component {
         this.props.fetchComments(this.props.props.match.params.videoId)
     }
 
-    componentDidUpdate(prevProp) {
-        if (prevProp.props.match.params !== this.props.props.match.params) {
-            this.props.fetchComments(this.props.props.match.params.videoId)
-        }
-    }
+    // componentDidUpdate(prevProp) {
+    //     if (prevProp.props.match.params !== this.props.props.match.params) {
+    //         this.props.fetchComments(this.props.props.match.params.videoId)
+    //     }
+    // }
 
     update(e){
         this.setState({commentText: e.currentTarget.value})

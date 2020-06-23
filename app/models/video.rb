@@ -1,6 +1,6 @@
 class Video < ApplicationRecord
 
-    include PgSearch
+    include PgSearch::Model
     multisearchable against: [:title, :description],
                     using: [:tsearch, :trigram]
 

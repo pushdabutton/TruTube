@@ -15,6 +15,7 @@ class VideoUpload extends React.Component {
 
     handleFile(e) {
         const reader = new FileReader();
+        
         const file = e.currentTarget.files[0];
         reader.onloadend = () =>
             this.setState({ imageUrl: reader.result, imageFile: file });
@@ -26,6 +27,7 @@ class VideoUpload extends React.Component {
             this.setState({ imageUrl: "", imageFile: null });
         }
     }
+    
 
     handleSubmit() {
         const formData = new FormData();
