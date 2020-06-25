@@ -7,8 +7,10 @@ import {withRouter} from 'react-router-dom'
 const msp = state => {
 
     return {
+
         videos: Object.values(state.entities.videos),
         ui: state.ui
+        
     }
 }
 
