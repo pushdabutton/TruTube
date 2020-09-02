@@ -101,7 +101,7 @@ class Navbar extends React.Component {
                     <div className="nav-leftside">
                         <h1 ><i className="fas fa-align-justify"></i></h1>
                         <Link to="/" className={`${mode}-nav-home`}>
-                            <h3> <i className="fab fa-youtube"></i> TruTube</h3>
+                            <h3>Verbal WarZone</h3>
                         </Link>
                     </div >
                     <form className="search" onSubmit={this.handleSubmit}>
