@@ -1,6 +1,6 @@
 
 export const fetchVideo = id => {
-    
+
     return (
     $.ajax({
         method: 'get',
@@ -10,6 +10,7 @@ export const fetchVideo = id => {
 };
 
 export const fetchvideos = () => {
+    
     return(
         $.ajax({
             method: 'GET',
