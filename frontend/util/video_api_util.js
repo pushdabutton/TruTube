@@ -20,7 +20,7 @@ export const fetchvideos = () => {
 }
 
 export const searchVideos = query => {
-    
+
     return $.ajax({
         method: "GET",
         url: "/api/videos",
@@ -29,6 +29,7 @@ export const searchVideos = query => {
 }
 
 export const createVideo = video => {
+    
     return (
         $.ajax({
             method: 'post',
